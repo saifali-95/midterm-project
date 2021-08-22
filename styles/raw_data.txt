@@ -1,0 +1,123 @@
+Category 1- Men's Running Shoe
+
+
+C1P1 {
+  name: Nike Air VaporMax 2021 Flyknit,
+  manufacturer: Nike,
+  image: https://www.footlocker.com/product/nike-air-vapormax-2021-flyknit-mens/H4084001.html,
+  size: 11,
+  color: grey,
+  material: knit,
+  seller: Magnus Carlsen,
+  description: 'Brand new lightweight men's running shoe, with heavier durability and traction. There is padding on the heel for added comfort.'
+  (url: https://www.footlocker.com/product/nike-air-vapormax-2021-flyknit-mens/H4084001.html)
+}
+
+
+C1P2 {
+  name: adidas Ultraboost DNA,
+  manufacturer: Adidas,
+  image: https://images.footlocker.com/is/image/EBFL2/FZ5487_a1?wid=597&hei=597&fmt=png-alpha,
+  size: 9.5,
+  color: red,
+  material: knit,
+  seller: Hikaru Nakamura,
+  description: 'Flexible knit shoe with a foam midsole for extra comfort and a sole that offers a lot of traction.'
+  (url: https://www.footlocker.com/product/adidas-ultraboost-dna-mens/FZ5487.html)
+}
+
+
+C1P3 {
+  name: ASICS GEL-Cumulus,
+  manufacturer: ASICS,
+  image: https://images.footlocker.com/is/image/EBFL2/1A862100_a1?wid=630&hei=630&fmt=png-alpha,
+  size: 10,
+  color: white,
+  material: mesh,
+  seller: Anish Giri,
+  description: 'High-abrasion rubber sole, good for a variety of running surfaces.'
+  (url: https://www.footlocker.com/product/asics-gel-cumulus-22-mens/1A862023.html)
+}
+
+---------------------------------------------------------------------------------------
+
+Category 2- Casual Shoes
+
+C2P1 {
+  name: Nike Air Force 1 '07 LV8,
+  manufacturer: ASICS,
+  image: https://images.footlocker.com/is/image/EBFL2/Z0337700_a1?wid=490&hei=490&fmt=png-alpha,
+  size: 8.0,
+  color: multicolored,
+  material: leather/mesh,
+  seller: Fabiano Caruana,
+  description: 'Air Force One in a tri-colored scheme. Breathable and durable.'
+  (url:https://www.footlocker.com/product/nike-air-force-1-07-lv8-mens/Z0337700.html)
+}
+
+C2P2 {
+  name: Vans Old Skool,
+  manufacturer: Vans,
+  image: https://images.footlocker.com/is/image/EBFL2/Z0337700_a1?wid=490&hei=490&fmt=png-alpha,
+  size: 8.0,
+  color: blue,
+  material: leather/canvas,
+  seller: Liren Ding,
+  description: 'Classic Old Skool Vans skater shoe in blue and black. "Off the Wall" rubber logo patches on each heel.'
+  (url:https://www.footlocker.com/product/vans-old-skool-mens/0207299.html)
+}
+
+C2P3 {
+  name: New Balance 992,
+  manufacturer: New Balance,
+  image: https://images.footlocker.com/is/image/EBFL2/992DM426_a1?wid=597&hei=597&fmt=png-alpha,
+  size: 9,
+  color: multicolored,
+  material: leather/suede/mesh,
+  seller: Bobby Fisher,
+  description: 'Classic New Balance. Lifted Sole and tightly woven material.'
+  (url: https://www.footlocker.com/product/new-balance-992-mens/992DM426.html)
+}
+
+
+---------------------------------------------------------------------------------------
+
+Category 3 - Basketball Shoes
+
+
+C3P1 {
+  name: Jordan Max Aura 3,
+  manufacturer: Jordan,
+  image: https://images.footlocker.com/is/image/EBFL2/Z4167001_a1?wid=490&hei=490&fmt=png-alpha,
+  size: 12,
+  color: black,
+  material: leather,
+  seller: Hikaru Nakamura,
+  description: 'Lightweight and durable basetball shoe, with lightweight impact.'
+  (url: https://www.footlocker.com/product/jordan-max-aura-3-mens/Z4167001.html)
+}
+
+
+C3P2 {
+  name: Nike Air Foamposite Pro,
+  manufacturer: Nike,
+  image: https://images.footlocker.com/is/image/EBFL2/64041700_a1?wid=490&hei=490&fmt=png-alpha,
+  size: 9.5,
+  color: yellow,
+  material: textile mix,
+  seller: Fabiano Caruana,
+  description: 'Futuristic baskeball shoe that conforms to the wearer's foot. Sole provides dynamic cushion.'
+  (url: https://www.footlocker.com/product/nike-air-foamposite-pro-mens/64041700.html)
+}
+
+C3P3 {
+  name: Reebok Shaqnosis,
+  manufacturer: Reebok,
+  image: https://images.footlocker.com/is/image/EBFL2/FV2971_a1?wid=490&hei=490&fmt=png-alpha,
+  size: 11.5,
+  color: yellow,
+  material: leather/nubuck,
+  seller: Viswanathan Anand,
+  description: 'Has a glow-in-the-dark rubber outsole and added textile lining for extra support.'
+  (url: hhttps://www.footlocker.com/product/reebok-shaqnosis-mens/FV2971.html)
+}
