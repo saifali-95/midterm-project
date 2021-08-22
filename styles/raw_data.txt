@@ -3,6 +3,7 @@ Category 1- Men's Running Shoe
 
 C1P1 {
   name: Nike Air VaporMax 2021 Flyknit,
+  price: 200.00,
   manufacturer: Nike,
   image: https://www.footlocker.com/product/nike-air-vapormax-2021-flyknit-mens/H4084001.html,
   size: 11,
@@ -16,6 +17,7 @@ C1P1 {
 
 C1P2 {
   name: adidas Ultraboost DNA,
+  price: 149.99,
   manufacturer: Adidas,
   image: https://images.footlocker.com/is/image/EBFL2/FZ5487_a1?wid=597&hei=597&fmt=png-alpha,
   size: 9.5,
@@ -29,6 +31,7 @@ C1P2 {
 
 C1P3 {
   name: ASICS GEL-Cumulus,
+  price: 89.99,
   manufacturer: ASICS,
   image: https://images.footlocker.com/is/image/EBFL2/1A862100_a1?wid=630&hei=630&fmt=png-alpha,
   size: 10,
@@ -45,7 +48,8 @@ Category 2- Casual Shoes
 
 C2P1 {
   name: Nike Air Force 1 '07 LV8,
-  manufacturer: ASICS,
+  price: 110.00,
+  manufacturer: Nike,
   image: https://images.footlocker.com/is/image/EBFL2/Z0337700_a1?wid=490&hei=490&fmt=png-alpha,
   size: 8.0,
   color: multicolored,
@@ -57,6 +61,7 @@ C2P1 {
 
 C2P2 {
   name: Vans Old Skool,
+  price: 60.00,
   manufacturer: Vans,
   image: https://images.footlocker.com/is/image/EBFL2/Z0337700_a1?wid=490&hei=490&fmt=png-alpha,
   size: 8.0,
@@ -69,6 +74,7 @@ C2P2 {
 
 C2P3 {
   name: New Balance 992,
+  price: 149.99,
   manufacturer: New Balance,
   image: https://images.footlocker.com/is/image/EBFL2/992DM426_a1?wid=597&hei=597&fmt=png-alpha,
   size: 9,
@@ -87,6 +93,7 @@ Category 3 - Basketball Shoes
 
 C3P1 {
   name: Jordan Max Aura 3,
+  price: 120.00,
   manufacturer: Jordan,
   image: https://images.footlocker.com/is/image/EBFL2/Z4167001_a1?wid=490&hei=490&fmt=png-alpha,
   size: 12,
@@ -100,6 +107,7 @@ C3P1 {
 
 C3P2 {
   name: Nike Air Foamposite Pro,
+  price: 230.00,
   manufacturer: Nike,
   image: https://images.footlocker.com/is/image/EBFL2/64041700_a1?wid=490&hei=490&fmt=png-alpha,
   size: 9.5,
@@ -112,6 +120,7 @@ C3P2 {
 
 C3P3 {
   name: Reebok Shaqnosis,
+  price: 119.99,
   manufacturer: Reebok,
   image: https://images.footlocker.com/is/image/EBFL2/FV2971_a1?wid=490&hei=490&fmt=png-alpha,
   size: 11.5,
@@ -119,5 +128,5 @@ C3P3 {
   material: leather/nubuck,
   seller: Viswanathan Anand,
   description: 'Has a glow-in-the-dark rubber outsole and added textile lining for extra support.'
-  (url: hhttps://www.footlocker.com/product/reebok-shaqnosis-mens/FV2971.html)
+  (url: https://www.footlocker.com/product/reebok-shaqnosis-mens/FV2971.html)
 }
