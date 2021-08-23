@@ -1,9 +1,34 @@
 // See: https://sass-lang.com/
 
-body {
-  background-color: #EEE;
 
-  h1 {
-    color: #244751;
-  }
+
+.container {
+  display:flex;
+  height: 100%;
+  width: 90%;
+  flex-direction: column;
+  background-color: #f4f1ec;
+  border-bottom: 3px #545149;
+  justify-content: space-evenly;
+
+}
+
+
+p {
+  color: red;
+}
+
+.run_cat {
+  height: auto;
+  width: 30%;
+  border-width: 3px;
+  border-color:red;
+}
+.casual_cat {
+  height: auto;
+  width: 30%
+}
+.basketball_cat {
+  height:auto;
+  width:30%
 }
