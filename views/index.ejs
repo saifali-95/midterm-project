@@ -22,7 +22,7 @@
       padding: 2px 16px;
     }
 
-    main {
+    .container1 {
       display: flex;
       height: 100%;
       width: 90%;
@@ -42,41 +42,43 @@
   3. Men's Basketball
 -->
 
+<header>
+  <%- include('partials/_header') %>
+</header>
 
-<%- include('partials/_header') %>
 
-  <body>
-    <main class="main">
-      <div class="card">
-        <img
-          src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.omegasports.com%2Fprodimages%2F5731-DEFAULT-l.jpg&f=1&nofb=1'
-          alt="men's running shoes">
-        <div class="container">
-          <h4><b>Men's Running</b></h4>
-        </div>
+<body>
+  <div class='container1'>
+    <div class="card">
+      <img
+        src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.omegasports.com%2Fprodimages%2F5731-DEFAULT-l.jpg&f=1&nofb=1'
+        alt="men's running shoes">
+      <div class="container">
+        <h4><b>Men's Running</b></h4>
       </div>
+    </div>
 
-      <div class="card">
-        <img
-          src='https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimage.sportsmansguide.com%2Fadimgs%2Fl%2F1%2F163508_ts.jpg&f=1&nofb=1'
-          alt="men's casual shoes">
-        <div class="container">
-          <h4><b>Men's Casual</b></h4>
-        </div>
+    <div class="card">
+      <img
+        src='https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimage.sportsmansguide.com%2Fadimgs%2Fl%2F1%2F163508_ts.jpg&f=1&nofb=1'
+        alt="men's casual shoes">
+      <div class="container">
+        <h4><b>Men's Casual</b></h4>
       </div>
+    </div>
 
-      <div class="card">
-        <img
-          src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.febbuy.com%2Fuploads%2FNike_Air_Jordan_Shoes%2FAir_Jordan_XXXI_31_Shoes%2FAir_Jordan_XXXI%2FNike_Air_Jordan_XXXI_31_Red_Black_White_Men_Basketball_Shoes_845037-600.jpg&f=1&nofb=1'
-          alt="men's basketball shoes">
-        <div class="container">
-          <h4><b>Men's Basketball</b></h4>
-        </div>
+    <div class="card">
+      <img
+        src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.febbuy.com%2Fuploads%2FNike_Air_Jordan_Shoes%2FAir_Jordan_XXXI_31_Shoes%2FAir_Jordan_XXXI%2FNike_Air_Jordan_XXXI_31_Red_Black_White_Men_Basketball_Shoes_845037-600.jpg&f=1&nofb=1'
+        alt="men's basketball shoes">
+      <div class="container">
+        <h4><b>Men's Basketball</b></h4>
       </div>
-    </main>
-  </body>
+    </div>
+  </div>
+</body>
 
 
-  <%- include('partials/_footer') %>
+<%- include('partials/_footer') %>
 
 </html>
