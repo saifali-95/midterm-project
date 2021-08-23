@@ -3,7 +3,7 @@
 
 <%- include('partials/_header') %>
 
-<!-- /:login
+  <!-- /:login
 
   Does not show "sign in/out" on header partial
 
@@ -12,8 +12,24 @@
   else redirects to /home, showing "signed in as [name]" and a sign out button, posting to /logout
 
 -->
+  <main style="margin: 1em;">
+    <h3>Please enter your login information</h3>
 
+    <form class="form-inline" action="/login" method="POST">
+      <div class="form-group mb-2">
+        <input type="email" class="form-control" name="Name" placeholder="Please enter your name"
+          style="width: 300px; margin: 1em"><br><br>
+        <input type="password" class="form-control" name="password" placeholder="Please enter your password"
+          style="width: 300px; margin: 1em"><br><br>
+        <button type="submit" class="btn btn-primary">Submit</button>
 
-<%- include('partials/_footer') %>
+      </div>
+    </form>
+
+    </body>
+
+  </main>
+
+  <%- include('partials/_footer') %>
 
 </html>
