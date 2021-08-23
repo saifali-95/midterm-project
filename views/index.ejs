@@ -8,18 +8,19 @@
 
 
   <style>
-
     .card {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       transition: 0.3s;
       width: 40%;
-      margin:10px;
+      margin: 10px;
     }
+
     img {
       height: 400px;
 
       width: 400px;
     }
+
     .card:hover {
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     }
@@ -47,39 +48,44 @@
   2. Men's Casual
   3. Men's Basketball
 -->
+
 <body>
 
-<header>
-  <%- include('partials/_header') %>
-</header>
+  <header>
+    <%- include('partials/_header') %>
+  </header>
 
 
   <main>
     <div class="card">
-      <img
-        src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.omegasports.com%2Fprodimages%2F5731-DEFAULT-l.jpg&f=1&nofb=1'
-        alt="men's running shoes">
-      <div class="container">
-        <h4><b>Men's Running</b></h4>
-      </div>
+      <a href="/<%=category%>">
+        <img
+          src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.omegasports.com%2Fprodimages%2F5731-DEFAULT-l.jpg&f=1&nofb=1'
+          alt="men's running shoes">
+        <div class="container">
+          <h4><b>Men's Running</b></h4>
+        </div>
+      </a>
     </div>
 
     <div class="card">
-      <img
-        src='https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimage.sportsmansguide.com%2Fadimgs%2Fl%2F1%2F163508_ts.jpg&f=1&nofb=1'
-        alt="men's casual shoes">
-      <div class="container">
-        <h4><b>Men's Casual</b></h4>
-      </div>
+      <a href="/<%=category%>">
+        <img
+          src='https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimage.sportsmansguide.com%2Fadimgs%2Fl%2F1%2F163508_ts.jpg&f=1&nofb=1'
+          alt="men's casual shoes">
+        <div class="container">
+          <h4><b>Men's Casual</b></h4>
+        </div>
+      </a>
     </div>
 
     <div class="card">
-      <img
-        src='https://m.media-amazon.com/images/I/71Q3Q3KQk7L._AC_UL320_.jpg'
-        alt="men's basketball shoes">
-      <div class="container">
-        <h4><b>Men's Basketball</b></h4>
-      </div>
+      <a href="/<%=category%>">
+        <img src='https://m.media-amazon.com/images/I/71Q3Q3KQk7L._AC_UL320_.jpg' alt="men's basketball shoes">
+        <div class="container">
+          <h4><b>Men's Basketball</b></h4>
+        </div>
+      </a>
     </div>
 
   </main>
