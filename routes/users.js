@@ -10,6 +10,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    const email = 'tristanjacobs@gmail.com'
     db.query(`SELECT * FROM users;`)
       .then(data => {
         const users = data.rows;
@@ -21,5 +22,11 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
+
   return router;
 };
+
+
+
+
+
