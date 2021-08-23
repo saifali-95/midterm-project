@@ -25,7 +25,7 @@ module.exports = (db) => {
         const user = data.rows[0].name;
         const templateVars = {user};
         if (user) {
-          res.render("login", templateVars);
+          res.render("partials/_header", templateVars);
         }
       })
       .catch(err => {
