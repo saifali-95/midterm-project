@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="utf-8">
+<meta charset="utf-8">
+
 <head>
   <!-- App CSS -->
-  <link rel="stylesheet" href="/styles/layout.scss" type="text/scss" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 </head>
 
-<%- include('partials/_header') %>
-<body>
-  <p>This is a test.</p>
-  <img id="run_cat" src='https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fweeklygravy.com%2Fwp-content%2Fuploads%2F2014%2F09%2Frunning-man.jpg&f=1&nofb=1' alt="men's running shoes">
-
-
-
-</body>
 <!-- "/" or "/home" first page, contains graphic
-
-
   below, 3 clickable category areas, redirecting to /:categoryid
-
   1. Men's Running
   2. Men's Casual
   3. Men's Basketball
-
 -->
 
 
-<%- include('partials/_footer') %>
+<%- include('partials/_header') %>
+
+  <body>
+    <main class="container">
+      <div>
+        <p>Men's Running</p>
+        <img class="run_cat"
+          src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.omegasports.com%2Fprodimages%2F5731-DEFAULT-l.jpg&f=1&nofb=1'
+          alt="men's running shoes">
+      </div>
+      <div>
+        <p>Men's Casual</p>
+        <img class="casual_cat"
+          src='https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimage.sportsmansguide.com%2Fadimgs%2Fl%2F1%2F163508_ts.jpg&f=1&nofb=1'
+          alt="men's casual shoes">
+      </div>
+      <div>
+        <p>Men's Basketball</p>
+        <img class='basketball_cat'
+          src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.febbuy.com%2Fuploads%2FNike_Air_Jordan_Shoes%2FAir_Jordan_XXXI_31_Shoes%2FAir_Jordan_XXXI%2FNike_Air_Jordan_XXXI_31_Red_Black_White_Men_Basketball_Shoes_845037-600.jpg&f=1&nofb=1'
+          alt="men's basketball shoes">
+      </div>
+    </main>
+  </body>
+
+
+  <%- include('partials/_footer') %>
+
 </html>
