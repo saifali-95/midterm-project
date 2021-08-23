@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta charset="utf-8">
+
 <%- include('partials/_header') %>
 
-<!-- /new page, make new post
+  <!-- /new page, make new post
 
   input POST for new product
     fields: Name, Brand, Size, Colour, Shoe Description, Photo
@@ -14,7 +16,21 @@
   will not show "make new post" button on footer
 
 -->
+  <main style="margin: 1em;">
+    <h3>Create new post</h3>
+    <form class="form-inline" action="/new-post" method="POST">
+      <div class="form-group mb-2">
+        <label for="longURL">Enter a URL:</label>
+        <input class="form-control" type="text" name="Name">
+        <input class="form-control" type="text" name="Brand">
+        <input class="form-control" type="number" name="Size">
+        <input class="form-control" type="text" name="Colour">
+        <input class="form-control" type="text" name="Description">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </main>
 
+  <%- include('partials/_footer') %>
 
-<%- include('partials/_footer') %>
 </html>
