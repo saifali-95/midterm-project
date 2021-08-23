@@ -9,13 +9,22 @@ Contains
 
 -->
 
+<!-- CSS (load bootstrap from a CDN) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- <style>
+  body { padding-top:50px; }
+</style> -->
 <header>
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="/home">Shoe Website</a>
-  <a class="navbar-brand">Navbar</a>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="submit" placeholder="Login" aria-label="Login">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-  </form>
-</nav>
-</header>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Shoe Website</a>
+    <ul class="navbar-nav mr-auto">
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Sign in</a>
+      </li>
+    </ul>
+  </nav>
+
