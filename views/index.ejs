@@ -8,12 +8,18 @@
 
 
   <style>
+
     .card {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       transition: 0.3s;
       width: 40%;
+      margin:10px;
     }
+    img {
+      height: 400px;
 
+      width: 400px;
+    }
     .card:hover {
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     }
@@ -22,10 +28,10 @@
       padding: 2px 16px;
     }
 
-    .container1 {
+    main {
       display: flex;
       height: 100%;
-      width: 90%;
+      padding: 0 10%;
       flex-direction: row;
       background-color: #f4f1ec;
       border-bottom: 3px #545149;
@@ -41,14 +47,14 @@
   2. Men's Casual
   3. Men's Basketball
 -->
+<body>
 
 <header>
   <%- include('partials/_header') %>
 </header>
 
 
-<body>
-  <div class='container1'>
+  <main>
     <div class="card">
       <img
         src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.omegasports.com%2Fprodimages%2F5731-DEFAULT-l.jpg&f=1&nofb=1'
@@ -69,13 +75,14 @@
 
     <div class="card">
       <img
-        src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.febbuy.com%2Fuploads%2FNike_Air_Jordan_Shoes%2FAir_Jordan_XXXI_31_Shoes%2FAir_Jordan_XXXI%2FNike_Air_Jordan_XXXI_31_Red_Black_White_Men_Basketball_Shoes_845037-600.jpg&f=1&nofb=1'
+        src='https://m.media-amazon.com/images/I/71Q3Q3KQk7L._AC_UL320_.jpg'
         alt="men's basketball shoes">
       <div class="container">
         <h4><b>Men's Basketball</b></h4>
       </div>
     </div>
-  </div>
+
+  </main>
 </body>
 
 
