@@ -1,0 +1,20 @@
+body {
+  display: flex;
+  flex-direction: row;
+  color: #545149;
+  background-color: #f4f1ec;
+  font-size: 24px;
+  /* font-family: 'Source Sans Pro', sans-serif;ss */
+  align-items: center;
+}
+
+
+
+#run_cat {
+  height: auto;
+  width: 30%;
+}
+
+p {
+  color: red;
+}
