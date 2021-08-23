@@ -16,17 +16,17 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
 
     const {email, password} = req.body;
-    console.log(email, password)
     db.query(`
       SELECT * FROM users
       WHERE email = $1 AND password = $2;
       `, [email, password])
       .then(data => {
-        const user = data.rows[0].name;
-        const templateVars = {user};
-        if (user) {
-          res.render("partials/_header", templateVars);
+        const user = data.rows[0];
+        if (!user) {
+          return res.send("<html><head></head><body>Email/password combination is not correct try <a href='/login'>login</a> again!</body></html>");
         }
+        req.session.name = user.name;
+        return res.redirect("/");
       })
       .catch(err => {
         res.send().status(500)

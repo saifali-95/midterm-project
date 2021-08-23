@@ -22,11 +22,13 @@ Contains
       <!-- <li class="nav-item">
         <a class="nav-link" href="/">Home</a>
       </li> -->
-      <%= user %>
-
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Sign in</a>
-      </li>
+      <% if (!locals.user) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Sign in</a>
+        </li>
+      <% } else {%>
+        <%= locals.user %>
+      <% } %>
     </ul>
   </nav>
 
