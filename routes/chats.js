@@ -16,8 +16,13 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     console.log(req.session.user_id);
+    db.query(`SELECT * FROM chats`)
+    .then(data => {
+      console.log(data.rows);
+    })
     res.render("chats");
   });
+
   router.post("/", (req, res) => {
     const seller_id = 2;
     const message = req.body.message;
