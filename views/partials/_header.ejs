@@ -57,17 +57,19 @@ Contains
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="/">Home</a>
-      </li>
-      <% if (!locals.user) { %>
+      </li> -->
+      <% if (locals.user) { %>
+        Hello <%= locals.user %>
+        <div>
+          <form action="/logout" method="POST">
+            <input type="submit" value="Logout" class="btn btn-outline-dark"/>
+          </form>
+        </div>
+      <% } else { %>
         <li class="nav-item">
           <a class="nav-link" href="/login">Sign in</a>
         </li>
-      <% } else {%>
-        <%= locals.user %>
       <% } %>
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Sign in</a>
-      </li>
     </ul>
   </nav>
 
