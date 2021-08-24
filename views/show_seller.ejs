@@ -17,7 +17,6 @@
 
   <style>
     main {
-      /* display: flex; */
       height: 100%;
       padding: 0 5%;
       flex-direction: row;
@@ -52,9 +51,18 @@
     }
 
     .item1 {
-      border: 1px;
-      background-color: rgb(232, 232, 245)
+      display: flex;
+      padding: 20px;
+      flex-direction: column;
+      max-width:500px;
+      margin: 30px;
+      background-color: rgb(232, 232, 245);
+      transition: 0.5s;
     }
+    .item1:hover {
+      box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.4);
+    }
+
     h1 {
       margin: 5pt;
     }
@@ -69,7 +77,9 @@
 </header>
 
 
-<h1><b><%=sellerName %>'s Shoes:</b></h1>
+<h1><b>
+    <%=sellerName %>'s Shoes:
+  </b></h1>
 
 
 <main>
@@ -83,7 +93,7 @@
         <td class='item1'>
           <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
           <h2><b>Name: <%= product.name%></b></h2>
-          <h2><b>Price: <%= product.price%></b></h2>
+          <h2><b>Price: $<%= product.price%></b></h2>
           <h2><b>Description: <%= product.info%></b></h2>
         </td>
 
@@ -91,10 +101,10 @@
       </tr>
       <% } %>
 
-    </table>
+  </table>
 
 
-  </main>
-    <%- include('partials/_footer') %>
+</main>
+<%- include('partials/_footer') %>
 
 </html>
