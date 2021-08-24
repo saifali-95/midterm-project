@@ -77,16 +77,14 @@
 </header>
 
 
-<h1><b>
-    <%=sellerName %>'s Shoes:
-  </b></h1>
+<h1><b><%= product.seller_name %>'s Shoes:</b></h1>
 
 
 <main>
 
+  <% for(product of products) { %>
   <table class='items'>
 
-    <% for(product of products) { %>
 
       <tr>
 
@@ -94,6 +92,7 @@
           <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
           <h2><b>Name: <%= product.name%></b></h2>
           <h2><b>Price: $<%= product.price%></b></h2>
+          <h2><b>Brand: <%= product.cat_name %></b></h2>
           <h2><b>Description: <%= product.info%></b></h2>
         </td>
 

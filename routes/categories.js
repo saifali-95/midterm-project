@@ -29,7 +29,6 @@ module.exports = (db) => {
         products: data.rows,
         categoryName
       }
-      console.log(data.rows, 'data.rows');
       res.render("show_categories", products);
     })
   });

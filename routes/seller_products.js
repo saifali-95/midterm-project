@@ -8,7 +8,7 @@ module.exports = (db) => {
     const sellerID = req.params.id;
 
     db.query(`
-      SELECT products.*, users.name as seller_name
+      SELECT products.*, categories.name as cat_name, users.name as seller_name
       FROM users
       LEFT JOIN products
       ON users.id = seller_id
@@ -20,9 +20,7 @@ module.exports = (db) => {
     .then(data => {
       const products = {
         products: data.rows,
-        sellerName: data.rows[0].seller_name
       }
-      console.log(data.rows, 'data.rows');
       res.render("show_seller", products);
     })
   });
