@@ -12,19 +12,20 @@ module.exports = (db) => {
 
 
   router.get("/:name", (req, res) => {
-    const categoryName = req.params.name
-    const {user_id} = req.session.id;
+    const categoryName = req.params.name;
+
     db.query(`
-      SELECT products.*
+      SELECT products.*, users.name as seller_name
       FROM products
       LEFT JOIN categories
       ON category_id = categories.id
+      JOIN users
+      ON users.id = seller_id
       WHERE categories.name = $1
     `, [categoryName])
 
     .then(data => {
       const products = {
-
         products: data.rows,
         categoryName
       }

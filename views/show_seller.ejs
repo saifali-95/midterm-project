@@ -8,6 +8,26 @@
   shows all items being sold by [seller], same layout and functionality as show_categories
 
 -->
+<h4><b><%= categoryName %>'s Shoes:</b></h4>
+<table class='items'>
+
+  <% for(product of products) { %>
+
+    <tr>
+
+      <td class='item1'>
+        <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+        <h2><b>Name: <%= product.name%></b></h2>
+        <h2><b>Seller: <%= product.name%></b></h2>
+        <h4><b>Price: <%= product.price%></b></h4>
+        <h4><b>Description: <%= product.info%></b></h4>
+      </td>
+
+
+    </tr>
+  <% } %>
+
+</table>
 
 
 <%- include('partials/_footer') %>

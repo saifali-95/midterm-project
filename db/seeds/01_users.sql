@@ -6,7 +6,7 @@
     INSERT INTO users (
     name, email, password, phone)
     VALUES (
-    'Iva Harrison', 'allisonjackson@mail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', '+14165550016');
+    'Iva Harrison', 'allisonjackson@mail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', '+16139157474');
     INSERT INTO users (
     name, email, password, phone)
     VALUES (

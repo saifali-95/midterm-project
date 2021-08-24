@@ -83,10 +83,13 @@
 
               <td class='item1'>
                 <!-- test:    <code><%= JSON.stringify(product) %></code> -->
-                <h4><b>Name: <%= product.name%></b></h4>
-                <h4><b>Description: <%= product.info%></b></h4>
-                <h4><b>Price: <%= product.price%></b></h4>
+
                 <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+                <h2><b>Name: <%= product.name%></b></h2>
+                <!-- <h4><b>Seller:<a href="/<%= product.seller_name%>"><%= product.seller_name%></a></b></h4> -->
+                <h4><b>Seller: <%= product.seller_name%></b></h4>
+                <h4><b>Price: <%= product.price%></b></h4>
+                <h4><b>Description: <%= product.info%></b></h4>
               </td>
 
 

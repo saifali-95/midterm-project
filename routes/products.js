@@ -10,6 +10,10 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
+  router.get("/addItem", (req, res) => {
+    res.render("addItem");
+  });
+
   router.post("/addItem", (req, res) => {
     const {
       name,
@@ -18,23 +22,23 @@ module.exports = (db) => {
       color,
       brand,
       price,
-      url,
+      photo,
       category,
       user_id
     } = req.body;
     if (user_id) {
       const seller_id = user_id;
-
       db.query(`
         SELECT id FROM categories
         WHERE name = $1
         `, [category])
       .then(data => {
+        console.log(data)
         const category_id = Number(data.rows[0].id);
         db.query(`
           INSERT INTO products (name, info, size, color, brand, price, thumbnail_photo_url, category_id, seller_id)
           VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9);
-          `, [name, info, size, color, brand, price, url, category_id, seller_id])
+          `, [name, info, size, color, brand, price, photo, category_id, seller_id])
         .then(data => {
           db.query(`
           SELECT * FROM products
@@ -49,7 +53,7 @@ module.exports = (db) => {
       });
       return res.redirect("/");
     }
-      return res.send("Please login first!!!");
+    return res.send("Please login first!!!");
   });
 
   return router;
