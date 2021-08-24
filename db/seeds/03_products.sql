@@ -11,7 +11,7 @@ INSERT INTO products (name, info, size, color, brand, price, thumbnail_photo_url
 VALUES ('Nike Air Force 1 07 LV8', 'Air Force One in a tri-colored scheme. Breathable and durable.',8.0, 'multicolored', 'Nike', 110.00,  'https://images.footlocker.com/is/image/EBFL2/Z0337700_a1?wid=490&hei=490&fmt=png-alpha', 2, 2);
 
 INSERT INTO products (name, info, size, color, brand, price, thumbnail_photo_url, category_id, seller_id)
-VALUES ('Vans Old Skool', 'Classic Old Skool Vans skater shoe in blue and black. "Off the Wall" rubber logo patches on each heel.',8.0, 'blue', 'Vans', 60.00,  'https://images.footlocker.com/is/image/EBFL2/Z0337700_a1?wid=490&hei=490&fmt=png-alpha', 2, 2);
+VALUES ('Vans Old Skool', 'Classic Old Skool Vans skater shoe in blue and black. "Off the Wall" rubber logo patches on each heel.',8.0, 'blue', 'Vans', 60.00, 'https://images.footlocker.com/is/image/EBFL2/0207299_a1?wid=619&hei=619&fmt=png-alpha', 2, 2);
 
 INSERT INTO products (name, info, size, color, brand, price, thumbnail_photo_url, category_id, seller_id)
 VALUES ('New Balance 992', 'Classic New Balance. Lifted Sole and tightly woven material.',9.0, 'multicolored', 'New Balance', 149.99,  'https://images.footlocker.com/is/image/EBFL2/992DM426_a1?wid=597&hei=597&fmt=png-alpha', 2, 2);

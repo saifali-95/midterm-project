@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('partials/_header') %>
+
 
 <!-- /:sellerid page
 
@@ -10,6 +10,102 @@
 -->
 
 
+<head>
+  <!-- App CSS -->
+  <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
+
+
+  <style>
+    main {
+      height: 100%;
+      padding: 0 5%;
+      flex-direction: row;
+      background-color: #f4f1ec;
+      border-bottom: 3px #545149;
+      justify-content: space-evenly;
+
+    }
+
+    .container {
+      width: 100;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    .filter_column {
+      float: left;
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .item1 {
+      display: flex;
+      padding: 20px;
+      flex-direction: column;
+      max-width:500px;
+      margin: 30px;
+      background-color: rgb(232, 232, 245);
+      transition: 0.5s;
+    }
+    .item1:hover {
+      box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      margin: 5pt;
+    }
+  </style>
+
+</head>
+
+
+
+<header>
+  <%- include('partials/_header') %>
+</header>
+
+
+<main>
+  <h1><b><%= sellerName %>'s Shoes:</b></h1>
+
+  <% for(product of products) { %>
+
+
+  <table class='items'>
+
+
+      <tr>
+
+        <td class='item1'>
+          <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+          <h2><b>Name: <%= product.name%></b></h2>
+          <h2><b>Price: $<%= product.price%></b></h2>
+          <h2><b>Brand:  <a href="/categories/<%= product.cat_name%>"><%= product.cat_name%></a></b></h2>
+
+          <!-- <h2><b>Brand: <%= product.cat_name %></b></h2> -->
+          <h2><b>Description: <%= product.info%></b></h2>
+        </td>
+
+
+      </tr>
+      <% } %>
+
+  </table>
+
+
+</main>
 <%- include('partials/_footer') %>
 
 </html>
