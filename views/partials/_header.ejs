@@ -9,13 +9,67 @@ Contains
 
 -->
 
-<header>
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="/home">Shoe Website</a>
-  <a class="navbar-brand">Navbar</a>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="submit" placeholder="Login" aria-label="Login">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-  </form>
-</nav>
-</header>
+<!-- CSS (load bootstrap from a CDN) -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"> -->
+<!-- <style>
+  body { padding-top:50px; }
+</style> -->
+
+
+  <!-- Source Sans Pro:   font-family: 'Source Sans Pro', sans-serif;   -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
+    rel="stylesheet">
+
+  <!-- awesome font -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    referrerpolicy="no-referrer" />
+
+<style>
+  .bg-light {
+    background-color: #f8f9fa!important;
+}
+  .navbar {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding-left: 1em;
+    padding-right: 1em;
+  font-family: 'Source Sans Pro', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    margin-bottom: 30px;
+}
+</style>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Shoe Website</a>
+    <ul class="navbar-nav mr-auto">
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li> -->
+      <% if (locals.user) { %>
+        Hello <%= locals.user %>
+        <div>
+          <form action="/logout" method="POST">
+            <input type="submit" value="Logout" class="btn btn-outline-dark"/>
+          </form>
+        </div>
+      <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Sign in</a>
+        </li>
+      <% } %>
+    </ul>
+  </nav>
+
