@@ -26,6 +26,7 @@ module.exports = (db) => {
           return res.send("<html><head></head><body>Email/password combination is not correct try <a href='/login'>login</a> again!</body></html>");
         }
         req.session.name = user.name;
+        req.session.user_id = user.id;
         return res.redirect("/");
       })
       .catch(err => {

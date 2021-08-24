@@ -1,12 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="utf-8">
+<meta charset="utf-8">
 
-<%- include('partials/_header') %>
-<title>TinyApp</title>
+<head>
+  <!-- App CSS -->
+  <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
 
 
+  <style>
+    main {
+      /* display: flex; */
+      height: 100%;
+      padding: 0 10%;
+      flex-direction: row;
+      background-color: #f4f1ec;
+      border-bottom: 3px #545149;
+      justify-content: space-evenly;
+    }
 
+    .container {
+      width: 100;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    .filter_column {
+      float: left;
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .item1 {
+      border: 1px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <%- include('partials/_header') %>
+  </header>
+
+
+  <main>
+    <div class="container">
+      <div class="row">
+
+        <div class="filter_column">
+          <h4>Filter By</h4>
+          <div class="filter-by">
+            <ul>
+              <li>Price</li>
+              <!-- implement functionality -->
+              <li>Colour</li>
+              <!-- implement functionality -->
+              <li>Brand</li>
+              <!-- implement functionality -->
+            </ul>
+          </div>
+        </div>
+
+        <h4><b>Category: <%= categoryName %></b></h4>
+        <table class='items'>
+
+          <% for(product of products) { %>
+
+            <tr>
+
+              <td class='item1'>
+                <!-- test:    <code><%= JSON.stringify(product) %></code> -->
+                <h4><b>Name: <%= product.name%></b></h4>
+                <h4><b>Description: <%= product.info%></b></h4>
+                <h4><b>Price: <%= product.price%></b></h4>
+                <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+              </td>
+
+
+            </tr>
+          <% } %>
+
+        </table>
+
+
+      </div>
+    </div>
+  </main>
+</body>
 
 <!-- /:categoryid page
 
@@ -28,5 +121,5 @@
 -->
 
 
-<%- include('partials/_footer') %>
 
+<%- include('partials/_footer') %>
