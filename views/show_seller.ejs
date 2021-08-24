@@ -92,7 +92,9 @@
           <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
           <h2><b>Name: <%= product.name%></b></h2>
           <h2><b>Price: $<%= product.price%></b></h2>
-          <h2><b>Brand: <%= product.cat_name %></b></h2>
+          <h2><b>Brand:  <a href="/categories/<%= product.cat_name%>"><%= product.cat_name%></a></b></h2>
+
+          <!-- <h2><b>Brand: <%= product.cat_name %></b></h2> -->
           <h2><b>Description: <%= product.info%></b></h2>
         </td>
 
