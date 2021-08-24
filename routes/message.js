@@ -7,6 +7,7 @@
 require('dotenv').config()
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
+const twilioNumber = process.env.TWILIO_PHONE_NUMBER;
 const client = require('twilio')(accountSid, authToken);
 const express = require('express');
 const router  = express.Router();
@@ -16,20 +17,22 @@ module.exports = (db) => {
     res.render("message");
   });
   router.post("/", (req, res) => {
-
-  const message = req.body.message;
-  console.log(message);
-
-  client.messages
-    .create({
-      body: `${message}`,
-      from: '+16826228584',
-      to: '+16139157474'
+    const seller_id = 2;
+    const message = req.body.message;
+    db.query(`
+    SELECT * FROM users
+    WHERE id = $1;
+    `,[seller_id])
+    .then(data => {
+      const user = data.rows[0];
+      client.messages
+      .create({
+        body: `${message}`,
+        from: `${twilioNumber}`,
+        to: `${user.phone}`
+      })
     })
-    .then(message => console.log(message.sid))
-    .catch(error => console.log(error));
   });
-
   return router;
 };
 
