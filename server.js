@@ -20,7 +20,7 @@ db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
-//         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+// The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 app.use(cookies());
 app.use(session({secret: "Shh, its a secret!"}));
@@ -44,7 +44,8 @@ const messageRoutes = require("./routes/message");
 const favouriteRoutes = require("./routes/favourite");
 const productRoutes = require("./routes/products");
 const categoriesRoutes = require("./routes/categories");
-const chatsRoutes = require ("./routes/chats")
+const sellerRoutes = require("./routes/seller_products");
+const chatsRoutes = require ("./routes/chats");
 
 
 // Mount all resource routes
@@ -57,7 +58,9 @@ app.use("/categories", categoriesRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/message", messageRoutes(db));
 app.use("/products", productRoutes(db));
-app.use("/chats", chatsRoutes(db));
+app.use("/seller", sellerRoutes(db));
+
+// app.use("/chats", chatsRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 

@@ -74,7 +74,7 @@
           </div>
         </div>
 
-        <h4><b>Category: <%= categoryName %></b></h4>
+        <h1><b>Category: <%= categoryName %></b></h1>
         <table class='items'>
 
           <% for(product of products) { %>
@@ -86,8 +86,7 @@
 
                 <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
                 <h2><b>Name: <%= product.name%></b></h2>
-                <!-- <h4><b>Seller:<a href="/<%= product.seller_name%>"><%= product.seller_name%></a></b></h4> -->
-                <h4><b>Seller: <%= product.seller_name%></b></h4>
+                <h4><b>Seller:  <a href="/seller/<%= product.seller_id%>"><%= product.seller_name%></a></b></h4>
                 <h4><b>Price: <%= product.price%></b></h4>
                 <h4><b>Description: <%= product.info%></b></h4>
               </td>

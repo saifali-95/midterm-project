@@ -1,35 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('partials/_header') %>
+
 
 <!-- /:sellerid page
 
   shows all items being sold by [seller], same layout and functionality as show_categories
 
 -->
-<h4><b><%= categoryName %>'s Shoes:</b></h4>
-<table class='items'>
-
-  <% for(product of products) { %>
-
-    <tr>
-
-      <td class='item1'>
-        <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
-        <h2><b>Name: <%= product.name%></b></h2>
-        <h2><b>Seller: <%= product.name%></b></h2>
-        <h4><b>Price: <%= product.price%></b></h4>
-        <h4><b>Description: <%= product.info%></b></h4>
-      </td>
 
 
-    </tr>
-  <% } %>
+<head>
+  <!-- App CSS -->
+  <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
 
-</table>
+
+  <style>
+    main {
+      /* display: flex; */
+      height: 100%;
+      padding: 0 5%;
+      flex-direction: row;
+      background-color: #f4f1ec;
+      border-bottom: 3px #545149;
+      justify-content: space-evenly;
+
+    }
+
+    .container {
+      width: 100;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    .filter_column {
+      float: left;
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .item1 {
+      border: 1px;
+      background-color: rgb(232, 232, 245)
+    }
+    h1 {
+      margin: 5pt;
+    }
+  </style>
+
+</head>
 
 
-<%- include('partials/_footer') %>
+
+<header>
+  <%- include('partials/_header') %>
+</header>
+
+
+<h1><b><%=sellerName %>'s Shoes:</b></h1>
+
+
+<main>
+
+  <table class='items'>
+
+    <% for(product of products) { %>
+
+      <tr>
+
+        <td class='item1'>
+          <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+          <h2><b>Name: <%= product.name%></b></h2>
+          <h2><b>Price: <%= product.price%></b></h2>
+          <h2><b>Description: <%= product.info%></b></h2>
+        </td>
+
+
+      </tr>
+      <% } %>
+
+    </table>
+
+
+  </main>
+    <%- include('partials/_footer') %>
 
 </html>
