@@ -19,11 +19,16 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     const seller_id = 2;
     const message = req.body.message;
+
     db.query(`
     SELECT * FROM users
     WHERE id = $1;
     `,[seller_id])
     .then(data => {
+      db.query(`INSERT INTO chats (from_id, to_id, message, product_id)
+      VALUES ($1, $2, $3, $4)
+      `, [1, 2, `${message}`, 2])
+
       const user = data.rows[0];
       client.messages
       .create({
@@ -31,6 +36,7 @@ module.exports = (db) => {
         from: `${twilioNumber}`,
         to: `${user.phone}`
       })
+      return;
     })
   });
   return router;
