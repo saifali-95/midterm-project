@@ -9,7 +9,7 @@
 
   <style>
     main {
-      display: flex;
+      /* display: flex; */
       height: 100%;
       padding: 0 10%;
       flex-direction: row;
@@ -28,16 +28,22 @@
 
     .row {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       margin-right: -15px;
       margin-left: -15px;
     }
 
     .filter_column {
-      position: relative;
+      float: left;
       width: 100%;
       padding-right: 15px;
       padding-left: 15px;
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .item1 {
+      border: 1px;
     }
   </style>
 
@@ -53,16 +59,43 @@
   <main>
     <div class="container">
       <div class="row">
+
         <div class="filter_column">
           <h4>Filter By</h4>
           <div class="filter-by">
             <ul>
               <li>Price</li>
+              <!-- implement functionality -->
               <li>Colour</li>
+              <!-- implement functionality -->
               <li>Brand</li>
+              <!-- implement functionality -->
             </ul>
           </div>
         </div>
+
+        <h4><b>Category Names: <%= categoryName %></b></h4>
+        <table class='items'>
+
+          <% for(product of products) { %>
+
+            <tr>
+
+              <td class='item1'>
+                <!-- test:    <code><%= JSON.stringify(product) %></code> -->
+                <h4><b>Name: <%= product.name%></b></h4>
+                <h4><b>Description: <%= product.info%></b></h4>
+                <h4><b>Price: <%= product.price%></b></h4>
+                <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+              </td>
+
+
+            </tr>
+          <% } %>
+
+        </table>
+
+
       </div>
     </div>
   </main>
