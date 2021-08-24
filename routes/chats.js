@@ -15,17 +15,20 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    console.log(req.session.user_id);
+    const loginUser = req.session.user_id;
+
     db.query(`SELECT * FROM chats`)
     .then(data => {
-      console.log(data.rows);
+      const templateVars =  {data: data.rows, loginUser};
+      res.render("chats", templateVars)
     })
-    res.render("chats");
+    return;
   });
 
   router.post("/", (req, res) => {
     const seller_id = 2;
     const message = req.body.message;
+    const from_id = req.session.user_id;
 
     db.query(`
     SELECT * FROM users
@@ -34,16 +37,17 @@ module.exports = (db) => {
     .then(data => {
       db.query(`INSERT INTO chats (from_id, to_id, message, product_id)
       VALUES ($1, $2, $3, $4)
-      `, [1, 2, `${message}`, 2])
+      `, [from_id, 2, `${message}`, 2])
 
       const user = data.rows[0];
+      console.log('user', user);
       client.messages
       .create({
         body: `${message}`,
         from: `${twilioNumber}`,
         to: `${user.phone}`
       })
-      return;
+      res.redirect('/chats');
     })
   });
   return router;
