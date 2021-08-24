@@ -9,24 +9,28 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
-    res.render("show_categories");
-  });
-  router.get("/categories", (req, res) => {
-    // const {user_id} = req.session.id;
-    // db.query(`
-    //   SELECT *
-    //   FROM products
-    //   LEFT JOIN categories
-    //   ON category_id = categories.id
-    // `, category_id)
-    // .then(data => {
-    //   templateVars = {
-    //     products: data.rows
-    //   }
-    // })
-    // res.render("show_categories", products);
-    res.render("show_categories");
+
+
+  router.get("/:name", (req, res) => {
+    const categoryName = req.params.name
+    const {user_id} = req.session.id;
+    db.query(`
+      SELECT products.*
+      FROM products
+      LEFT JOIN categories
+      ON category_id = categories.id
+      WHERE categories.name = $1
+    `, [categoryName])
+
+    .then(data => {
+      const products = {
+
+        products: data.rows,
+        categoryName
+      }
+      console.log(data.rows, 'data.rows');
+      res.render("show_categories", products);
+    })
   });
 
 
