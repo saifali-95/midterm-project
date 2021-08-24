@@ -20,6 +20,7 @@ module.exports = (db) => {
     .then(data => {
       const products = {
         products: data.rows,
+        sellerName: data.rows[0].seller_name
       }
       res.render("show_seller", products);
     })
