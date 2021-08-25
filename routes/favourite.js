@@ -12,7 +12,6 @@ module.exports = (db) => {
 
   router.get("/", (req, res) => {
     const {user_id} = req.session;
-    console.log(user_id)
     if (!user_id) {
       return res.send("Please <a href='/login'>login</a> first!")
     }

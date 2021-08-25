@@ -31,7 +31,7 @@
           <!-- filter by price. Will show anything beneath the input -->
 
           <li>Price</li>
-          <form id='price-filter' action='/categories/<%= categoryName %>/price' method="POST">
+          <!-- <form id='price-filter' action='/categories/<%= categoryName %>/price' method="POST">
             <div class="slidecontainer">
               <input type="range" min="1" max="300" value="150" class="slider" id="myRange" name="price">
 
@@ -41,7 +41,7 @@
               </div>
 
             </div>
-          </form>
+          </form> -->
 
 
           <div class="container">
@@ -61,11 +61,11 @@
 
         <tr>
 
-          <td class='item1' data-href='/products/<%= product.id %>'>
-            <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+          <td id='<%= product.id %>' class='item1'>
+            <a href='/products/<%= product.id %>'><img src='<%= product.thumbnail_photo_url%>' alt='shoe image'/></a>
 
             <div class='name-and-button'>
-              <h2><b>Name: <a href="/products/<%= product.id %>">
+              <h2><b>Name: <a href='/products/<%= product.id %>'>
                     <%= product.name%>
                   </a></b></h2>
               <button type="submit" action="" method="POST">
@@ -77,7 +77,7 @@
               <h2><b>Seller: <a href="/seller/<%= product.seller_id%>">
                     <%= product.seller_name%>
                   </a></b></h2>
-              <button type="submit" action="" method="POST">
+              <button type="submit">
                 <i class="fas fa-comment fa-3x"></i>
               </button>
             </div>

@@ -24,7 +24,13 @@ $(document).ready(function() {
     window.location = "/seller/mylist";
   };
 
-  $('.item1').click(function() {
-    window.location = $(this).data('href');
-  });
+  $('.fa-heart').click(function() {
+    const productId = $('.item1').id
+    console.log(productId)
+    // $.ajax({
+    //   url:'/favourite',
+    //   type:'POST'
+    //   data:
+    // })
+  })
 });
