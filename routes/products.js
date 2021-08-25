@@ -55,6 +55,21 @@ module.exports = (db) => {
     }
     return res.send("Please login first!!!");
   });
-
+  router.post("/:id/delete", (req, res) => {
+    const product_id =  req.params.id;
+    const seller_id = req.session.user_id
+    if (!seller_id) {
+      return res.send("Please login first!");
+    }
+    db.query(`
+      DELETE FROM products
+      WHERE products.id = $1
+      AND seller_id = $2
+    `, [product_id, seller_id])
+    .then(() => res.send("Your item successfully removed!"))
+    .catch(err => {
+      res.send().status().json({err: err.message})
+    })
+  });
   return router;
 };
