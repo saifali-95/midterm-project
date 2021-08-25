@@ -16,7 +16,8 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/:id", (req, res) => {
     const product_id = req.params.id;
-    const templateVars = {product_id};
+    const user = req.session.name;
+    const templateVars = {product_id, user};
     res.render("message", templateVars);
   });
 
@@ -32,24 +33,44 @@ module.exports = (db) => {
     `,[product_id])
 
     .then(data => {
-      const seller_id = data.rows[0].id;
-      const phone =  data.rows[0].phone;
+    const seller_id = data.rows[0].id;
+    const phone =  data.rows[0].phone;
+    console.log('seller_id', seller_id);
+    console.log('buyer', buyer);
 
-      db.query(`INSERT INTO chats (from_id, to_id, message, product_id)
-      VALUES ($1, $2, $3, $4)
-      `, [buyer, seller_id , `${message}`, product_id])
+    //RUN A QUERY TO CHECK IF THE BUYER AND SELLER ARE ALREADY TALKING ABOUT CERTAIN PRODUCT, IF NO THEN INITIATE CHAT_SERVICE_ID FOR THAT PARTICULAR CHAT
 
-      const user = data.rows[0];
-      console.log('user phone:', user);
+    db.query(`SELECT * FROM chat_service WHERE from_id = $1 and product_id = $2`, [buyer, product_id])
+    .then(data => {
+      if(data.rows.length === 0) {
+      db.query(`INSERT INTO chat_service (from_id, to_id, product_id)
+      VALUES ($1, $2, $3)
+      `, [buyer, seller_id ,product_id])
+      }
+      return data;
+      })
+
+
+    //ONCE A CHAT_SERVICE IS INITIATED BETWEEN USERS, THEN ALL RELATED CHAT WILL BE INSERTED INTO CHATS TABLE WITH THE UNIQUE CHAT_SERVICE_ID
+
+    .then(data => {
+      const chat_service = data.rows[0].id;
+      db.query(`INSERT INTO chats (from_id, to_id, message, product_id, chat_service_id)
+      VALUES ($1, $2, $3, $4, $5)
+      `, [buyer, seller_id ,message,product_id, chat_service])
+
       client.messages
       .create({
         body: `${message}`,
         from: `${twilioNumber}`,
         to: `${phone}`
       })
-      return;
+
     })
+    })
+
   });
+
   return router;
 };
 
