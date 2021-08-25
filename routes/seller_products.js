@@ -3,6 +3,26 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
+  router.get("/mylist", (req, res) => {
+    const seller_id = req.session.user_id
+    db.query(`
+      SELECT products.*, categories.name as cat_name, users.name as seller_name
+      FROM products
+      JOIN categories
+      ON category_id = categories.id
+      JOIN users
+      ON seller_id = users.id
+      WHERE seller_id = $1
+    `, [seller_id])
+    .then(data => {
+      const templateVars = {
+        products: data.rows,
+        seller_id,
+        user: req.session.name
+      }
+      res.render("show_seller", templateVars);
+    })
+  })
 
   router.get("/:id", (req, res) => {
     const sellerID = req.params.id;
@@ -18,13 +38,16 @@ module.exports = (db) => {
     `, [sellerID])
 
     .then(data => {
-      const products = {
+      const seller_id = req.session.user_id === sellerID ? sellerID : null
+      const templateVars = {
         products: data.rows,
-        sellerName: data.rows[0].seller_name
+        seller_id,
+        user: req.session.name,
       }
-      res.render("show_seller", products);
+      res.render("show_seller", templateVars);
     })
   });
+
 
   return router;
 };

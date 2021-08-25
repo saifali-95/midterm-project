@@ -77,35 +77,31 @@
 </header>
 
 
+<% for(product of products) { %>
+
 <main>
-  <h1><b><%= sellerName %>'s Shoes:</b></h1>
-
-  <% for(product of products) { %>
-
-
+  <h1><b><%= product.seller_name %>'s Shoes:</b></h1>
   <table class='items'>
+    <tr>
+      <td class='item1'>
+        <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+        <h2><b>Name: <%= product.name%></b></h2>
+        <h2><b>Price: $<%= product.price%></b></h2>
+        <h2><b>Brand:  <a href="/categories/<%= product.cat_name%>"><%= product.cat_name%></a></b></h2>
 
-
-      <tr>
-
-        <td class='item1'>
-          <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
-          <h2><b>Name: <%= product.name%></b></h2>
-          <h2><b>Price: $<%= product.price%></b></h2>
-          <h2><b>Brand:  <a href="/categories/<%= product.cat_name%>"><%= product.cat_name%></a></b></h2>
-
-          <!-- <h2><b>Brand: <%= product.cat_name %></b></h2> -->
-          <h2><b>Description: <%= product.info%></b></h2>
+        <!-- <h2><b>Brand: <%= product.cat_name %></b></h2> -->
+        <h2><b>Description: <%= product.info%></b></h2>
+      </td>
+      <% if (seller_id) { %>
+        <td>
+          <form id="deleteItem" action="/products/<%= product.id %>/delete" method='POST'>
+            <button type="submit">X</button>
+          </form>
         </td>
-
-
-      </tr>
       <% } %>
-
+    </tr>
+    <% } %>
   </table>
-
-
 </main>
-<%- include('partials/_footer') %>
-
+  <%- include('partials/_footer') %>
 </html>

@@ -24,13 +24,14 @@ module.exports = (db) => {
       WHERE categories.name = $1
     `, [categoryName])
 
-      .then(data => {
-        const products = {
-          products: data.rows,
-          categoryName
-        }
-        res.render("show_categories", products);
-      })
+    .then(data => {
+      const products = {
+        products: data.rows,
+        categoryName,
+        user: req.session.name
+      }
+      res.render("show_categories", products);
+    })
   });
 
 
@@ -61,4 +62,5 @@ module.exports = (db) => {
   });
 
   return router;
+
 };
