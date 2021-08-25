@@ -37,7 +37,8 @@ module.exports = (db) => {
 
   router.post("/:name/price", (req, res) => {
     const categoryName = req.params.name;
-    const priceLimit = req.params.myRange;
+    const priceLim = req.body.price;
+    // console.log(req.body, "req.body");
 
     db.query(`
       SELECT products.*, users.name as seller_name
@@ -55,7 +56,7 @@ module.exports = (db) => {
           categoryName
         }
         products.products = products.products.filter(product => {
-          return product.price < priceLimit;
+          return product.price < priceLim;
         });
         res.render("show_categories", products);
       })
