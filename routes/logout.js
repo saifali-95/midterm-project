@@ -11,7 +11,7 @@ const router  = express.Router();
 module.exports = () => {
 
   router.post("/", (req, res) => {
-    req.session.destroy();
+    req.session = null;
     return res.redirect("/");
   })
   return router;

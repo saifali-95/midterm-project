@@ -97,7 +97,7 @@
           <!-- <h2><b>Brand: <%= product.cat_name %></b></h2> -->
           <h2><b>Description: <%= product.info%></b></h2>
         </td>
-        <% if (locals.seller_id) { %>
+        <% if (seller_id) { %>
           <td>
             <form id="deleteItem" action="/products/<%= product.id %>/delete" method='POST'>
               <button type="submit">X</button>

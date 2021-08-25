@@ -1,14 +1,4 @@
 $(document).ready(function() {
-  // $(() => {
-  //   $.ajax({
-  //     method: "POST",
-  //     url: "/products/addItem"
-  //   }).done((users) => {
-  //     for(user of users) {
-  //       $("<div>").text(user.name).appendTo($("body"));
-  //     }
-  //   });;
-  // });
 
   const success = () => {
     console.log("That was successful!!");
@@ -31,6 +21,10 @@ $(document).ready(function() {
       success: callback
     });
     $("#addItem")[0].reset();
+    window.location = "/seller/mylist";
   };
 
+  $('.item1').click(function() {
+    window.location = $(this).data('href');
+  });
 });

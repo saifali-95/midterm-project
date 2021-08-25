@@ -11,7 +11,34 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.get("/addItem", (req, res) => {
-    res.render("addItem");
+    const templateVars = {
+      user: req.session.name
+    }
+    res.render("addItem", templateVars);
+  });
+
+  router.get("/:productId", (req, res) => {
+    const {productId} = req.params;
+    console.log(req.params)
+    db.query(`
+    SELECT products.*, categories.name AS category_name, users.name AS seller
+    FROM products
+    JOIN categories
+    ON category_id = categories.id
+    JOIN users
+    ON products.seller_id = users.id
+    WHERE products.id = $1`, [productId])
+    .then(data => {
+      const templateVars = {
+        product: data.rows[0],
+        user: req.session.name
+      }
+      console.log(data.rows)
+      res.render("show_item", templateVars);
+    })
+    .catch(err => {
+      res.send().status().json({err: err.message});
+    })
   });
 
   router.post("/addItem", (req, res) => {
@@ -24,10 +51,10 @@ module.exports = (db) => {
       price,
       photo,
       category,
-      user_id
     } = req.body;
-    if (user_id) {
-      const seller_id = user_id;
+
+    const seller_id = req.session.user_id;
+    if (seller_id) {
       db.query(`
         SELECT id FROM categories
         WHERE name = $1
@@ -42,7 +69,10 @@ module.exports = (db) => {
         .then(data => {
           db.query(`
           SELECT * FROM products
-          WHERE category_id = $1`, [category_id]).then(data => console.log(data.rows))
+          WHERE category_id = $1`, [category_id])
+          .then(data => {
+            console.log(data.rows)
+          })
         })
         .catch(err => {
           return res.send().status().json({err: err.message})
@@ -51,10 +81,11 @@ module.exports = (db) => {
       .catch(err => {
         return res.send().status().json({err: err.message});
       });
-      return res.redirect("/");
+      return res.redirect("/seller/mylist");
     }
     return res.send("Please login first!!!");
   });
+
   router.post("/:id/delete", (req, res) => {
     const product_id =  req.params.id;
     const seller_id = req.session.user_id
@@ -66,7 +97,7 @@ module.exports = (db) => {
       WHERE products.id = $1
       AND seller_id = $2
     `, [product_id, seller_id])
-    .then(() => res.send("Your item successfully removed!"))
+    .then(() => res.redirect("/seller/mylist"))
     .catch(err => {
       res.send().status().json({err: err.message})
     })
