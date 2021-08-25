@@ -17,6 +17,7 @@ module.exports = (db) => {
     .then(data => {
       const templateVars = {
         products: data.rows,
+        sellerName: data.rows[0].seller_name,
         seller_id,
         user: req.session.name
       }
@@ -41,13 +42,48 @@ module.exports = (db) => {
       const seller_id = req.session.user_id === sellerID ? sellerID : null
       const templateVars = {
         products: data.rows,
+        sellerName: data.rows[0].seller_name,
         seller_id,
+        sellerID,
         user: req.session.name
       }
+      console.log("seller_id: ", seller_id);
+      console.log("sellerID: ", sellerID);
+
       res.render("show_seller", templateVars);
     })
   });
 
+
+
+  router.post("/:id/price", (req, res) => {
+    const sellerID = req.params.id;
+    const priceLim = req.body.price;
+    db.query(`
+      SELECT products.*, categories.name as cat_name, users.name as seller_name
+      FROM users
+      LEFT JOIN products
+      ON users.id = seller_id
+      LEFT JOIN categories
+      ON category_id = categories.id
+      WHERE seller_id = $1
+    `, [sellerID])
+
+    .then(data => {
+      const seller_id = req.session.user_id === sellerID ? sellerID : null
+      const products = {
+        products: data.rows,
+        sellerID,
+        seller_id,
+        sellerName: data.rows[0].seller_name,
+        user: req.session.name
+      }
+        products.products = products.products.filter(product => {
+          return product.price < priceLim;
+        });
+        res.render("show_seller", products);
+      })
+  });
 
   return router;
 };

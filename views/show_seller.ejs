@@ -15,9 +15,9 @@
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
   <!-- App CSS -->
-  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
-  <!-- <script type="text/javascript" src="/scripts/filter-items.js"></script> -->
+  <script type="text/javascript" src="/scripts/filter-items.js"></script>
   <!-- Font awesome import -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     referrerpolicy="no-referrer" />
@@ -30,43 +30,67 @@
   <%- include('partials/_header') %>
 </header>
 
+<h4>Filter By</h4>
+<ul>
+  <!-- filter by price. Will show anything beneath the input -->
+  <li>Price</li>
+  <form id='price-filter' action='/seller/<%= sellerID %>/price' method="POST">
+    <div class="slidecontainer">
+      <input type="range" min="1" max="300" value="150" class="slider" id="myRange" name="price">
 
+      <div id="price-and-val">
+        <p>Show items less than: $<span id="demo"></span></p>
+        <input id='price-button' type="submit" value="Filter">
+      </div>
 
-<% for(product of products) { %>
-<h1><b>
-    <%= product.seller_name %>'s Shoes:
-  </b></h1>
-<main>
-    <table class='items'>
-      <tr>
-        <td class='item1' data-href='/products/<%= product.id %>'>
-          <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+    </div>
+  </form>
+</ul>
 
-          <div class='name-and-button'>
-          <h2><b>Name: <a href="/products/<%= product.id %>">
-            <%= product.name%></a></b></h2>
-            <button type="submit" action="" method="POST">
-              <i class="fas fa-heart fa-3x"></i>
-            </button>
-          </div>
+<div class="container">
+  <div class="row">
+    <!-- <li>Colour</li> -->
+    <!-- implement functionality -->
+    <!-- <li>Brand</li> -->
+    <!-- implement functionality -->
+    </ul>
 
-          <h2><b>Price: $<%= product.price%></b></h2>
-          <h2><b>Brand: <a href="/categories/<%= product.cat_name%>">
-                <%= product.cat_name%>
-              </a></b></h2>
-          <h2><b>Description: <%= product.info%></b></h2>
-        </td>
-        <% if (seller_id) { %>
-          <td>
-            <form id="deleteItem" action="/products/<%= product.id %>/delete" method='POST'>
-              <button type="submit">X</button>
-            </form>
-          </td>
+    <h1><b>
+        <%= sellerName %>'s Shoes:
+      </b></h1>
+    <% for(product of products) { %>
+      <main>
+        <table class='items'>
+          <tr>
+            <td class='item1' data-href='/products/<%= product.id %>'>
+              <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+
+              <div class='name-and-button'>
+                <h2><b>Name: <a href="/products/<%= product.id %>">
+                      <%= product.name%>
+                    </a></b></h2>
+                <button type="submit" action="" method="POST">
+                  <i class="fas fa-heart fa-3x"></i>
+                </button>
+              </div>
+
+              <h2><b>Price: $<%= product.price%></b></h2>
+              <h2><b>Brand: <a href="/categories/<%= product.cat_name%>">
+                    <%= product.cat_name%>
+                  </a></b></h2>
+              <h2><b>Description: <%= product.info%></b></h2>
+            </td>
+            <% if (seller_id) { %>
+              <td>
+                <form id="deleteItem" action="/products/<%= product.id %>/delete" method='POST'>
+                  <button type="submit">X</button>
+                </form>
+              </td>
+              <% } %>
+          </tr>
           <% } %>
-      </tr>
-      <% } %>
-    </table>
-</main>
-<%- include('partials/_footer') %>
+        </table>
+      </main>
+      <%- include('partials/_footer') %>
 
 </html>
