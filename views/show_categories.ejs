@@ -49,9 +49,9 @@
 
           <div class="container">
             <div class="row">
-              <li>Colour</li>
+              <!-- <li>Colour</li> -->
               <!-- implement functionality -->
-              <li>Brand</li>
+              <!-- <li>Brand</li> -->
               <!-- implement functionality -->
         </ul>
       </div>
@@ -62,22 +62,15 @@
 
       <% for(product of products) { %>
 
-            <tr>
-              <td class='item1' data-href='/products/<%= product.id %>'>
-                <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
-                <a href="/products/:product_id">
-                <h2><b>Name: <%= product.name%></b></h2>
-                </a>
-                  <h2><b>Seller:  <a href="/seller/<%= product.seller_id%>"><%= product.seller_name%></a></b></h2>
-                  <h2><b>Price: $<%= product.price%></b></h2>
-                  <h2><b>Description: <%= product.info%></b></h2>
-                </td>
+        <tr>
 
-          <td class='item1'>
+          <td class='item1' data-href='/products/<%= product.id %>'>
             <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
 
             <div class='name-and-button'>
-              <h2><b>Name: <%= product.name%></b></h2>
+              <h2><b>Name: <a href="/products/<%= product.id %>">
+                    <%= product.name%>
+                  </a></b></h2>
               <button type="submit" action="" method="POST">
                 <i class="fas fa-heart fa-3x"></i>
               </button>
@@ -96,8 +89,8 @@
             <h2><b>Description: <%= product.info%></b></h2>
           </td>
 
-              </tr>
-          <% } %>
+        </tr>
+        <% } %>
 
     </table>
     </div>
