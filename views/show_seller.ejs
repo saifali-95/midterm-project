@@ -32,11 +32,11 @@
 
 
 
+<% for(product of products) { %>
 <h1><b>
-    <%= sellerName %>'s Shoes:
+    <%= product.seller_name %>'s Shoes:
   </b></h1>
 <main>
-  <% for(product of products) { %>
     <table class='items'>
       <tr>
         <td class='item1' data-href='/products/<%= product.id %>'>

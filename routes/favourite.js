@@ -11,16 +11,21 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
-    const {user_id} = req.session.user_id;
+    const {user_id} = req.session;
+    console.log(user_id)
+    if (!user_id) {
+      return res.send("Please <a href='/login'>login</a> first!")
+    }
     db.query(`
       SELECT * FROM favourites
       JOIN products ON product_id = products.id
-      WHERE seller_id = $1
+      WHERE user_id = $1
     `, [user_id])
     .then(data => {
       const templateVars = {
         products: data.rows,
-        user: req.session.name
+        user: req.session.name,
+        user_id
       }
       res.render("favourite", templateVars);
     })
