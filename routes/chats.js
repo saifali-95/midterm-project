@@ -16,29 +16,32 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     const user_id = req.session.user_id;
-    //const user = req.session.name;
+    const user = req.session.name;
 
     db.query(`SELECT id FROM chat_service WHERE from_id = $1 OR to_id = $1`, [user_id])
     .then(data => {
-      console.log(data.rows);
-      const templateVars =  {data: data.rows, user_id};
+      const templateVars =  {data: data.rows, user_id, user};
       res.render("chats", templateVars)
     })
     return;
   });
 
   router.get("/:id", (req, res) => {
-    // const user_id = req.session.user_id;
-    res.send('Hello WOrld')
+    const user = req.session.name;
+    const chat_id = req.params.id;
 
     //const user = req.session.name;
 
+    db.query(`SELECT to_id, from_id, message, time FROM chats WHERE chat_service_id = $1;`, [chat_id])
+    .then(data => {
+
+      const templateVars =  {data: data.rows, user};
+      //console.log(templateVars);
+      res.render("chatDisplay", templateVars)
+    })
+    return;
+
   });
-
-
-
-
-
 
   router.post("/", (req, res) => {
     const seller_id = 2;
