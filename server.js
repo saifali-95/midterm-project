@@ -60,8 +60,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use("/message", messageRoutes(db));
 app.use("/products", productRoutes(db));
 app.use("/seller", sellerRoutes(db));
-
-// app.use("/chats", chatsRoutes(db));
+app.use("/chats", chatsRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 

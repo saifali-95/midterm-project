@@ -30,6 +30,13 @@ module.exports = (db) => {
         categoryName,
         user: req.session.name
       }
+      console.log("these are the products", products);
+
+
+      // products.products = products.products.filter(product => {
+      //   return product.price < 70;
+      // });
+
       res.render("show_categories", products);
     })
   });
