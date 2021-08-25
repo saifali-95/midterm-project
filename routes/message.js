@@ -10,35 +10,68 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilioNumber = process.env.TWILIO_PHONE_NUMBER;
 const client = require('twilio')(accountSid, authToken);
 const express = require('express');
+const { LogInstance } = require('twilio/lib/rest/serverless/v1/service/environment/log');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
-    res.render("message");
+  router.get("/:id", (req, res) => {
+    const product_id = req.params.id;
+    const user = req.session.name;
+    const templateVars = {product_id, user};
+    res.render("message", templateVars);
   });
-  router.post("/", (req, res) => {
-    const seller_id = 2;
+
+  router.post("/:id", (req, res) => {
+
     const message = req.body.message;
+    const product_id = req.params.id;
+    const buyer = req.session.user_id;
 
     db.query(`
-    SELECT * FROM users
-    WHERE id = $1;
-    `,[seller_id])
-    .then(data => {
-      db.query(`INSERT INTO chats (from_id, to_id, message, product_id)
-      VALUES ($1, $2, $3, $4)
-      `, [1, 2, `${message}`, 2])
+    SELECT phone, users.id FROM users JOIN products ON seller_id = users.id
+    WHERE products.id = $1;
+    `,[product_id])
 
-      const user = data.rows[0];
+    .then(data => {
+    const seller_id = data.rows[0].id;
+    const phone =  data.rows[0].phone;
+    console.log('seller_id', seller_id);
+    console.log('buyer', buyer);
+
+    //RUN A QUERY TO CHECK IF THE BUYER AND SELLER ARE ALREADY TALKING ABOUT CERTAIN PRODUCT, IF NO THEN INITIATE CHAT_SERVICE_ID FOR THAT PARTICULAR CHAT
+
+    db.query(`SELECT * FROM chat_service WHERE from_id = $1 and product_id = $2`, [buyer, product_id])
+    .then(data => {
+      if(data.rows.length === 0) {
+      db.query(`INSERT INTO chat_service (from_id, to_id, product_id)
+      VALUES ($1, $2, $3)
+      `, [buyer, seller_id ,product_id])
+      }
+      return data;
+      })
+
+
+    //ONCE A CHAT_SERVICE IS INITIATED BETWEEN USERS, THEN ALL RELATED CHAT WILL BE INSERTED INTO CHATS TABLE WITH THE UNIQUE CHAT_SERVICE_ID
+
+    .then(data => {
+      const chat_service = data.rows[0].id;
+      db.query(`INSERT INTO chats (from_id, to_id, message, product_id, chat_service_id)
+      VALUES ($1, $2, $3, $4, $5)
+      `, [buyer, seller_id ,message,product_id, chat_service])
+
+    //SEND A TEXT MESSAGE VIA SMS TWILIO API TO THE END USER;
       client.messages
       .create({
         body: `${message}`,
         from: `${twilioNumber}`,
-        to: `${user.phone}`
+        to: `${phone}`
       })
-      return;
+
     })
+    })
+
   });
+
   return router;
 };
 

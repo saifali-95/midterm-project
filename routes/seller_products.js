@@ -17,7 +17,6 @@ module.exports = (db) => {
     .then(data => {
       const templateVars = {
         products: data.rows,
-        sellerName: data.rows[0].seller_name,
         seller_id,
         user: req.session.name
       }
@@ -42,14 +41,9 @@ module.exports = (db) => {
       const seller_id = req.session.user_id === sellerID ? sellerID : null
       const templateVars = {
         products: data.rows,
-        sellerName: data.rows[0].seller_name,
         seller_id,
-        sellerID,
         user: req.session.name
       }
-      console.log("seller_id: ", seller_id);
-      console.log("sellerID: ", sellerID);
-
       res.render("show_seller", templateVars);
     })
   });
@@ -73,9 +67,7 @@ module.exports = (db) => {
       const seller_id = req.session.user_id === sellerID ? sellerID : null
       const products = {
         products: data.rows,
-        sellerID,
         seller_id,
-        sellerName: data.rows[0].seller_name,
         user: req.session.name
       }
         products.products = products.products.filter(product => {

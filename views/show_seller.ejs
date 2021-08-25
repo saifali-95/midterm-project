@@ -34,7 +34,7 @@
 <ul>
   <!-- filter by price. Will show anything beneath the input -->
   <li>Price</li>
-  <form id='price-filter' action='/seller/<%= sellerID %>/price' method="POST">
+  <form id='price-filter' action='/seller/<%= seller_id %>/price' method="POST">
     <div class="slidecontainer">
       <input type="range" min="1" max="300" value="150" class="slider" id="myRange" name="price">
 
@@ -56,13 +56,13 @@
     </ul>
 
     <h1><b>
-        <%= sellerName %>'s Shoes:
+
       </b></h1>
     <% for(product of products) { %>
       <main>
         <table class='items'>
           <tr>
-            <td class='item1' data-href='/products/<%= product.id %>'>
+            <td class='item1'>
               <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
 
               <div class='name-and-button'>
