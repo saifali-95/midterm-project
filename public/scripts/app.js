@@ -24,7 +24,7 @@ $(document).ready(function() {
     window.location = "/seller/mylist";
   };
 
-  $('.item1').click(function() {
-    window.location = $(this).data('href');
-  });
+  // $('.item1').click(function() {
+  //   window.location = $(this).data('href');
+  // });
 });
