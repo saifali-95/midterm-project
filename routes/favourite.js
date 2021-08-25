@@ -19,10 +19,11 @@ module.exports = (db) => {
     `, user_id)
     .then(data => {
       templateVars = {
-        products: data.rows
+        products: data.rows,
+        user: req.session.name
       }
     })
-    res.render("favourite", products);
+    res.render("favourite", templateVars);
   });
   router.post("/", (req, res) => {
     const {product_id} = req.body;
