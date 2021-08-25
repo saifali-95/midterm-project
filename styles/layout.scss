@@ -110,6 +110,23 @@ main {
     font-weight: bold;
     text-align: center;
     display: inline-block;
-    font-size: 20px;
     width: 50%;
   }
+
+
+  .name-and-button {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 2.5%;
+  }
+
+  button {
+    border: none;
+    background-color: inherit;
+  }
+
+  i:hover {
+    transition: 0.3s;
+    color: blue;
+  }
+

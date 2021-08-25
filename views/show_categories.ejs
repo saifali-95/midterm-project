@@ -10,6 +10,10 @@
   <!-- App JS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
+  <!-- Font awesome import -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
@@ -62,10 +66,23 @@
 
           <td class='item1'>
             <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
-            <h2><b>Name: <%= product.name%></b></h2>
-            <h2><b>Seller: <a href="/seller/<%= product.seller_id%>">
-                  <%= product.seller_name%>
-                </a></b></h2>
+
+            <div class='name-and-button'>
+              <h2><b>Name: <%= product.name%></b></h2>
+              <button type="submit" action="" method="POST">
+                <i class="fas fa-heart fa-3x"></i>
+              </button>
+            </div>
+
+            <div class='name-and-button'>
+              <h2><b>Seller: <a href="/seller/<%= product.seller_id%>">
+                    <%= product.seller_name%>
+                  </a></b></h2>
+              <button type="submit" action="" method="POST">
+                <i class="fas fa-comment fa-3x"></i>
+              </button>
+            </div>
+
             <h2><b>Price: $<%= product.price%></b></h2>
             <h2><b>Description: <%= product.info%></b></h2>
           </td>
