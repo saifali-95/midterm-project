@@ -59,6 +59,7 @@ module.exports = (db) => {
       VALUES ($1, $2, $3, $4, $5)
       `, [buyer, seller_id ,message,product_id, chat_service])
 
+    //SEND A TEXT MESSAGE VIA SMS TWILIO API TO THE END USER;
       client.messages
       .create({
         body: `${message}`,
