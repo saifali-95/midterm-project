@@ -35,38 +35,48 @@ module.exports = (db) => {
     db.query(`SELECT to_id, from_id, message, time FROM chats WHERE chat_service_id = $1;`, [chat_id])
     .then(data => {
 
-      const templateVars =  {data: data.rows, user};
-      //console.log(templateVars);
+      const templateVars =  {data: data.rows, user, chat_id};
       res.render("chatDisplay", templateVars)
     })
     return;
 
   });
 
-  router.post("/", (req, res) => {
-    const seller_id = 2;
+  router.post("/:id", (req, res) => {
     const message = req.body.message;
     const from_id = req.session.user_id;
+    const chat_id = req.params.id;
 
     db.query(`
-    SELECT * FROM users
+    SELECT * FROM chat_service
     WHERE id = $1;
-    `,[seller_id])
-    .then(data => {
-      db.query(`INSERT INTO chats (from_id, to_id, message, product_id)
-      VALUES ($1, $2, $3, $4)
-      `, [from_id, 2, `${message}`, 2])
+    `,[chat_id])
 
-      const user = data.rows[0];
-      console.log('user', user);
-      client.messages
-      .create({
-        body: `${message}`,
-        from: `${twilioNumber}`,
-        to: `${user.phone}`
-      })
-      res.redirect('/chats');
+    .then(data => {
+
+      const to_id = (from_id === data.rows[0].from_id) ? data.rows[0].to_id : data.rows[0].from_id;
+      const product_id = data.rows[0].product_id;
+
+      db.query(`INSERT INTO chats (from_id, to_id, message, product_id, chat_service_id)
+      VALUES ($1, $2, $3, $4, $5)
+      `, [from_id, to_id, `${message}`, product_id, chat_id])
+
     })
+
+    .then(data => {
+
+      console.log(data);
+
+    })
+
+    // client.messages
+    // .create({
+    //   body: `${message}`,
+    //   from: `${twilioNumber}`,
+    //   to: `${user.phone}`
+    // })
+    // res.redirect('/chats');
+
   });
   return router;
 };
