@@ -6,7 +6,7 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (db) => {
 
@@ -24,23 +24,41 @@ module.exports = (db) => {
       WHERE categories.name = $1
     `, [categoryName])
 
-    .then(data => {
-      const products = {
-        products: data.rows,
-        categoryName
-      }
-      console.log("these are the products", products);
-
-
-      // products.products = products.products.filter(product => {
-      //   return product.price < 70;
-      // });
-
-      res.render("show_categories", products);
-    })
+      .then(data => {
+        const products = {
+          products: data.rows,
+          categoryName
+        }
+        res.render("show_categories", products);
+      })
   });
 
 
+  router.post("/:name/price", (req, res) => {
+    const categoryName = req.params.name;
+    const priceLimit = req.params.myRange;
+
+    db.query(`
+      SELECT products.*, users.name as seller_name
+      FROM products
+      LEFT JOIN categories
+      ON category_id = categories.id
+      JOIN users
+      ON users.id = seller_id
+      WHERE categories.name = $1
+    `, [categoryName])
+
+      .then(data => {
+        const products = {
+          products: data.rows,
+          categoryName
+        }
+        products.products = products.products.filter(product => {
+          return product.price < priceLimit;
+        });
+        res.render("show_categories", products);
+      })
+  });
 
   return router;
 };
