@@ -22,9 +22,6 @@
     <%- include('partials/_header') %>
   </header>
 
-  <h1>Price</h1>
-
-
   <main>
     <div class="filter_column">
       <h4>Filter By</h4>
@@ -36,7 +33,7 @@
           <li>Price</li>
           <form id='price-filter' action='/categories/<%= categoryName %>/price' method="POST">
             <div class="slidecontainer">
-              <input type="range" min="1" max="300" value="50" class="slider" id="myRange" name="price">
+              <input type="range" min="1" max="300" value="150" class="slider" id="myRange" name="price">
 
               <div id="price-and-val">
                 <p>Show items less than: $<span id="demo"></span></p>

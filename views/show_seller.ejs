@@ -12,69 +12,15 @@
 
 <head>
   <!-- App CSS -->
-  <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
   <!-- App CSS -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="/scripts/filter-items.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+  <!-- <script type="text/javascript" src="/scripts/filter-items.js"></script> -->
   <!-- Font awesome import -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     referrerpolicy="no-referrer" />
-
-  <style>
-    main {
-      height: 100%;
-      padding: 0 5%;
-      flex-direction: row;
-      background-color: #f4f1ec;
-      border-bottom: 3px #545149;
-      justify-content: space-evenly;
-
-    }
-
-    .container {
-      width: 100;
-      padding-right: 15px;
-      padding-left: 15px;
-      margin-right: auto;
-      margin-left: auto;
-    }
-
-    .row {
-      display: flex;
-      flex-direction: column;
-      margin-right: -15px;
-      margin-left: -15px;
-    }
-
-    .filter_column {
-      float: left;
-      width: 100%;
-      padding-right: 15px;
-      padding-left: 15px;
-      margin-left: 0;
-      width: 100%;
-    }
-
-    .item1 {
-      display: flex;
-      padding: 20px;
-      flex-direction: column;
-      max-width: 500px;
-      margin: 30px;
-      background-color: rgb(232, 232, 245);
-      transition: 0.5s;
-    }
-
-    .item1:hover {
-      box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.4);
-    }
-
-    h1 {
-      margin: 5pt;
-    }
-  </style>
 
 </head>
 
@@ -93,9 +39,17 @@
   <% for(product of products) { %>
     <table class='items'>
       <tr>
-        <td class='item1'>
+        <td class='item1' data-href='/products/<%= product.id %>'>
           <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
-          <h2><b>Name: <%= product.name%></b></h2>
+
+          <div class='name-and-button'>
+          <h2><b>Name: <a href="/products/<%= product.id %>">
+            <%= product.name%></a></b></h2>
+            <button type="submit" action="" method="POST">
+              <i class="fas fa-heart fa-3x"></i>
+            </button>
+          </div>
+
           <h2><b>Price: $<%= product.price%></b></h2>
           <h2><b>Brand: <a href="/categories/<%= product.cat_name%>">
                 <%= product.cat_name%>
