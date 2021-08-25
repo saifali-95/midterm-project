@@ -4,58 +4,11 @@
 
 <head>
   <!-- App CSS -->
-  <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
-
-
-  <style>
-    main {
-      height: 100%;
-      padding: 0 5%;
-      flex-direction: row;
-      background-color: #f4f1ec;
-      border-bottom: 3px #545149;
-      justify-content: space-evenly;
-    }
-
-    .container {
-      width: 100;
-      padding-right: 15px;
-      padding-left: 15px;
-      margin-right: auto;
-      margin-left: auto;
-    }
-
-    .row {
-      display: flex;
-      flex-direction: column;
-      margin-right: -15px;
-      margin-left: -15px;
-    }
-
-    .filter_column {
-      float: left;
-      width: 100%;
-      padding-right: 15px;
-      padding-left: 15px;
-      margin-left: 0;
-      width: 100%;
-      font-size: 45px;
-    }
-
-    .item1 {
-      display: flex;
-      padding: 20px;
-      flex-direction: column;
-      margin: 30px;
-      max-width:500px;
-      background-color: rgb(232, 232, 245);
-      background-color: rgb(232, 232, 245);
-      transition: 0.5s;
-    }
-    .item1:hover {
-      box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.4);
-    }
-  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/scripts/filter-items.js"></script>
+  <!-- App JS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
 </head>
 
@@ -65,48 +18,66 @@
     <%- include('partials/_header') %>
   </header>
 
+  <h1>Price</h1>
+
 
   <main>
-    <div class="container">
-      <div class="row">
+    <div class="filter_column">
+      <h4>Filter By</h4>
+      <div class="filter-by">
+        <ul>
 
-        <div class="filter_column">
-          <h4>Filter By</h4>
-          <div class="filter-by">
-            <ul>
-              <li>Price</li>
-              <!-- implement functionality -->
+          <!-- filter by price. Will show anything beneath the input -->
+
+          <li>Price</li>
+          <form id='price-filter' action='/price' method="POST">
+            <div class="slidecontainer">
+              <input type="range" min="1" max="300" value="50" class="slider" id="myRange">
+
+              <div id="price-and-val">
+                <p>Value: <span id="demo"></span></p>
+                <input id='price-button' type="submit" value="Filter">
+              </div>
+
+            </div>
+          </form>
+
+
+          <div class="container">
+            <div class="row">
               <li>Colour</li>
               <!-- implement functionality -->
               <li>Brand</li>
               <!-- implement functionality -->
-            </ul>
-          </div>
-        </div>
-
-        <h1><b>Category: <%= categoryName %></b></h1>
-        <table class='items'>
-
-          <% for(product of products) { %>
-
-            <tr>
-
-              <td class='item1'>
-                <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
-                <h2><b>Name: <%= product.name%></b></h2>
-                <h2><b>Seller:  <a href="/seller/<%= product.seller_id%>"><%= product.seller_name%></a></b></h2>
-                <h2><b>Price: $<%= product.price%></b></h2>
-                <h2><b>Description: <%= product.info%></b></h2>
-              </td>
-
-
-            </tr>
-          <% } %>
-
-        </table>
-
-
+        </ul>
       </div>
+    </div>
+
+    <h1><b>Category: <%= categoryName %></b></h1>
+    <table class='items'>
+
+      <% for(product of products) { %>
+
+        <tr>
+
+          <td class='item1'>
+            <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+            <h2><b>Name: <%= product.name%></b></h2>
+            <h2><b>Seller: <a href="/seller/<%= product.seller_id%>">
+                  <%= product.seller_name%>
+                </a></b></h2>
+            <h2><b>Price: $<%= product.price%></b></h2>
+            <h2><b>Description: <%= product.info%></b></h2>
+          </td>
+
+
+        </tr>
+        <% } %>
+
+    </table>
+
+
+    </div>
     </div>
   </main>
 </body>
