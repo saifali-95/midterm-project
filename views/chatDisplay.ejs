@@ -13,11 +13,12 @@
 
 -->
 <main style="margin: 1em;">
-  <h3>All Your Chat Conversation with Other User </h3>
-  <div>
-    <% for(let chat in data) { %>
 
-      <h2><b>Chat:  <a href="/chats/<%= data[chat]['id'] %>"><%= data[chat]['id'] %> </a></b></h2>
+  <h3> All Your Chat Conversation with Other User </h3>
+  <div>
+    <% for(let item in data) { %>
+
+      <h3>FROM USER <%= data[item]['from_id'] %> TO USER <%= data[item]['to_id'] %> MESSAGE: <%= data[item]['message'] %> ON <%= data[item]['time'] %>  </h3>
       <h2>  </h2>
 
     <% } %>

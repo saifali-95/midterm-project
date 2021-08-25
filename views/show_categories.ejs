@@ -61,8 +61,14 @@
 
         <tr>
 
-          <td class='item1' data-href='/products/<%= product.id %>'>
-            <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+              <td class='item1'>
+                <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+                <h2><b>Name: <%= product.name%></b></h2>
+                <h2><b>Seller:  <a href="/seller/<%= product.seller_id%>"><%= product.seller_name%></a></b></h2>
+                <h2><b>Price: $<%= product.price%></b></h2>
+                <h2><b>Description: <%= product.info%></b></h2>
+                <h2><b><a href="/message/<%= product.id%>"> Contact Seller:  </a></b></h2>
+              </td>
 
             <div class='name-and-button'>
               <h2><b>Name: <a href="/products/<%= product.id %>">
