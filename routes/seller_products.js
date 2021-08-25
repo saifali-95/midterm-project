@@ -6,10 +6,12 @@ module.exports = (db) => {
   router.get("/mylist", (req, res) => {
     const seller_id = req.session.user_id
     db.query(`
-      SELECT products.*, categories.name AS cat_name
+      SELECT products.*, categories.name as cat_name, users.name as seller_name
       FROM products
       JOIN categories
       ON category_id = categories.id
+      JOIN users
+      ON seller_id = users.id
       WHERE seller_id = $1
     `, [seller_id])
     .then(data => {
