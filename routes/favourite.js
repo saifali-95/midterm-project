@@ -11,19 +11,19 @@ const router  = express.Router();
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
-    const {user_id} = req.session.id;
+    const {user_id} = req.session.user_id;
     db.query(`
       SELECT * FROM favourites
       JOIN products ON product_id = products.id
-      WHERE id = $1
-    `, user_id)
+      WHERE seller_id = $1
+    `, [user_id])
     .then(data => {
-      templateVars = {
+      const templateVars = {
         products: data.rows,
         user: req.session.name
       }
+      res.render("favourite", templateVars);
     })
-    res.render("favourite", templateVars);
   });
   router.post("/", (req, res) => {
     const {product_id} = req.body;
