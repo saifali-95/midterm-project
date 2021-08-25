@@ -38,7 +38,6 @@ module.exports = (db) => {
   router.post("/:name/price", (req, res) => {
     const categoryName = req.params.name;
     const priceLim = req.body.price;
-    // console.log(req.body, "req.body");
 
     db.query(`
       SELECT products.*, users.name as seller_name
