@@ -32,8 +32,11 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     const {productId} = req.body;
-    if (req.session.user_id) {
-      const user_id = req.session.user_id;
+    const user_id = req.session.user_id;
+    console.log(user_id)
+    if (!user_id) {
+      return res.status(401).send("Please <a href='/login'>login</a> first!");
+    } else {
       db.query(`
        SELECT * FROM favourites
        WHERE user_id = $1
@@ -65,8 +68,6 @@ module.exports = (db) => {
         console.log("catch 3:", err);
         return res.json({err: err.message})
       });
-    } else {
-      return res.send("Please login first!!!");
     }
   });
 

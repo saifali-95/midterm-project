@@ -5,6 +5,9 @@ module.exports = (db) => {
 
   router.get("/mylist", (req, res) => {
     const seller_id = req.session.user_id
+    if (!seller_id) {
+      return res.send("Please <a href='/login'>login</a> first");
+    }
     db.query(`
       SELECT products.*, categories.name as cat_name, users.name as seller_name
       FROM products
@@ -27,7 +30,10 @@ module.exports = (db) => {
 
   router.get("/:id", (req, res) => {
     const sellerID = req.params.id;
-
+    const admin_id = req.session.user_id;
+    if (!admin_id) {
+      return res.send("Please <a href='/login'>login</a> first");
+    }
     db.query(`
       SELECT products.*, categories.name as cat_name, users.name as seller_name
       FROM users
