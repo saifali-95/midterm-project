@@ -17,13 +17,15 @@
 -->
 <main style="margin: 1em;">
 
-  <h3> All Your Chat Conversation with Other User </h3>
+    <h1> All Your Chat Conversation for <%= data[0]['name'] %> </h1>
+
   <div>
     <% for(let item in data) { %>
-
-      <h3>FROM USER <%= data[item]['from_id'] %> TO USER <%= data[item]['to_id'] %> MESSAGE: <%= data[item]['message'] %> ON <%= data[item]['time'] %>  </h3>
-      <h2>  </h2>
-
+      <% if (data[item]['from_id'] === user_id) { %>
+        <h3> You : <%= data[item]['message'] %> </h3>
+      <% } else { %>
+        <h3> <%= data[item]['from_name'] %> : <%= data[item]['message'] %> </h3>
+      <% }%>
     <% } %>
   </div>
 
