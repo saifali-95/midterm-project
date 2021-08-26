@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 
   const success = () => {
@@ -23,18 +24,32 @@ $(document).ready(function() {
     .done(() => {
       window.location = "/seller/mylist";
     })
-    // $("#addItem")[0].reset();
   };
+
+  $('#deleteItem').submit(function() {
+    if(confirm('Are you sure to delete the item?')) {
+      return true;
+    } else {
+      return false;
+    }
+  });
 
   $('.fa-heart').click(function() {
     const productId = $(this).parent().attr('id')
     $.ajax({
       url:'/favourite',
       type:'POST',
-      data: {productId}
+      data: {productId},
     })
     .done(() => {
-        location.reload();
+      location.reload();
+    })
+    .fail(() => {
+      if(confirm("Please login first")) {
+        window.location.href = "/login"
+      } else {
+        return false;
+      }
     })
   })
 });
