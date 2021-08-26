@@ -29,6 +29,8 @@
 .button {
   background-color: #040c75;
   border: none;
+  padding: 10.1px;
+  padding-right: 15px;
   color: rgb(255, 255, 255);
   text-align: center;
   text-decoration: none;
@@ -36,4 +38,6 @@
   width: auto;
   height: auto;
   cursor: pointer;
+  float: right;
+
 }
