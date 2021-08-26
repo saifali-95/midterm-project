@@ -58,25 +58,35 @@ module.exports = (db) => {
       const product_id = data.rows[0].product_id;
 
       db.query(`INSERT INTO chats (from_id, to_id, message, product_id, chat_service_id)
-      VALUES ($1, $2, $3, $4, $5)
+      VALUES ($1, $2, $3, $4, $5);
       `, [from_id, to_id, `${message}`, product_id, chat_id])
 
+      return (data);
     })
 
     .then(data => {
+      const to_id = (from_id === data.rows[0].from_id) ? data.rows[0].to_id : data.rows[0].from_id;
 
-      console.log(data);
+      db.query(`SELECT phone FROM users WHERE users.id= $1;`
+       ,[to_id])
 
+
+      .then(data=>{
+      const to_phone = data.rows[0].phone;
+
+      console.log('phone NUmber', to_phone);
+      console.log('message: ', message);
+
+      client.messages
+      .create({
+        body: `${message}`,
+        from: `${twilioNumber}`,
+        to: `${to_phone}`
+      })
+      res.redirect(`/chats/${chat_id}`);
+
+      })
     })
-
-    // client.messages
-    // .create({
-    //   body: `${message}`,
-    //   from: `${twilioNumber}`,
-    //   to: `${user.phone}`
-    // })
-    // res.redirect('/chats');
-
   });
   return router;
 };
