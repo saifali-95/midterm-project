@@ -4,44 +4,8 @@
 
 <head>
   <!-- App CSS -->
-  <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
-
-
-  <style>
-    .card {
-      transition: 0.5s;
-      margin: 10px;
-      font-size: 30px;
-    }
-
-    img {
-      height: 400px;
-
-      width: 400px;
-    }
-
-    .card:hover {
-      box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.4);
-    }
-
-    .container {
-      padding: 2px 16px;
-    }
-
-    main {
-      display: flex;
-      height: 100%;
-      padding: 0 10%;
-      flex-direction: row;
-      background-color: #f4f1ec;
-      border-bottom: 3px #545149;
-      justify-content: space-evenly;
-    }
-  </style>
-<!-- App JS -->
-<!-- header styling -->
-<link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
-
+  <link rel="stylesheet" href="/styles/index.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
 </head>
 
 <!-- "/" or "/home" first page, contains graphic
@@ -61,31 +25,33 @@
   <main>
     <div class="card">
       <a href="/categories/Running%20Shoes">
-        <img
+        <img class='shoe-img'
           src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.omegasports.com%2Fprodimages%2F5731-DEFAULT-l.jpg&f=1&nofb=1'
           alt="men's running shoes">
         <div class="container">
-          <h4><b>Men's Running</b></h4>
+          <p>Men's Running</p>
         </div>
       </a>
     </div>
 
     <div class="card">
       <a href="/categories/Casual%20Shoes">
-        <img
+        <img class='shoe-img'
           src='https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimage.sportsmansguide.com%2Fadimgs%2Fl%2F1%2F163508_ts.jpg&f=1&nofb=1'
           alt="men's casual shoes">
         <div class="container">
-          <h4><b>Men's Casual</b></h4>
+          <p>Men's Casual</p>
+
         </div>
       </a>
     </div>
 
     <div class="card">
       <a href="/categories/Basketball%20Shoes">
-        <img src='https://m.media-amazon.com/images/I/71Q3Q3KQk7L._AC_UL320_.jpg' alt="men's basketball shoes">
+        <img class='shoe-img'
+        src='https://m.media-amazon.com/images/I/71Q3Q3KQk7L._AC_UL320_.jpg' alt="men's basketball shoes">
         <div class="container">
-          <h4><b>Men's Basketball</b></h4>
+          <p>Men's Basketball</p>
         </div>
       </a>
     </div>
