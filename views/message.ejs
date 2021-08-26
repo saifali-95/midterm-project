@@ -16,7 +16,7 @@
 
 -->
 <main style="margin: 1em;">
-  <h3>You are contacting the seller for Product : <%= product_id%></h3>
+  <h3>You are contacting <%= data['seller_name']%> for Product : <%= data['product_name'] %></h3>
 
   <form class="form-inline" action="/message/<%= product_id%>" method="POST">
     <div class="form-group mb-2">

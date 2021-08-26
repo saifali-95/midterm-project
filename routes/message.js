@@ -17,8 +17,14 @@ module.exports = (db) => {
   router.get("/:id", (req, res) => {
     const product_id = req.params.id;
     const user = req.session.name;
-    const templateVars = {product_id, user};
-    res.render("message", templateVars);
+
+    db.query(`SELECT users.name as seller_name, products.name as product_name FROM users JOIN products ON seller_id = users.id WHERE products.id =$1;
+    `, [product_id])
+    .then(data => {
+      const templateVars = {data: data.rows[0], product_id, user};
+      res.render("message", templateVars);
+    })
+
   });
 
   router.post("/:id", (req, res) => {
