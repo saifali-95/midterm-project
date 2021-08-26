@@ -3,11 +3,12 @@
 <meta charset="utf-8">
 
 <head>
-  <!-- App CSS -->
+  <!-- App JS -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="/scripts/filter-items.js"></script>
-  <!-- App JS -->
+
+  <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <!-- header styling -->
   <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
@@ -63,15 +64,15 @@
 
         <tr>
 
-          <td class='item1' data-href='/products/<%= product.id %>'>
+          <td class='item1'>
             <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
 
             <div class='name-and-button'>
               <h2><b>Name: <a href="/products/<%= product.id %>">
                     <%= product.name%>
                   </a></b></h2>
-              <button id='<%= product.id %>' type="submit" action="" method="POST">
-                <i class="fas fa-heart fa-3x"></i>
+              <button class="fav" id='<%= product.id %>' type="submit" action="" method="POST">
+                  <i class="fas fa-heart fa-3x"></i>
               </button>
             </div>
 
@@ -99,6 +100,11 @@
     </div>
     </div>
   </main>
+  <script>
+    $('.fav').click(function() {
+      $(this).children().toggleClass("favourite");
+    });
+  </script>
 </body>
 
 <!-- /:categoryid page

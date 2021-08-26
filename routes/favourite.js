@@ -24,7 +24,7 @@ module.exports = (db) => {
       const templateVars = {
         products: data.rows,
         user: req.session.name,
-        user_id
+        user_id,
       }
       res.render("favourite", templateVars);
     })
@@ -44,30 +44,30 @@ module.exports = (db) => {
             INSERT INTO favourites (user_id, product_id)
             VALUES($1, $2);
           `, [user_id, productId])
-          .then(() => console.log("then 2:"))
+          .then()
           .catch(err => {
             console.log("catch 1:", err);
-            // return res.json({err: err.message})
+            return res.json({err: err.message})
           });
         } else {
           db.query(`
           DELETE FROM favourites
           WHERE user_id = $1
           AND product_id = $2`, [user_id, productId])
-          .then()
+          .then(() => res.redirect("/favourite"))
           .catch(err => {
             console.log("catch 2: ", err);
-            // return res.json({err: err.message})
+            return res.json({err: err.message})
           }) ;
         }
       })
       .catch(err => {
         console.log("catch 3:", err);
-
-        // return res.json({err: err.message})
+        return res.json({err: err.message})
       });
-    }
+    } else {
       return res.send("Please login first!!!");
+    }
   });
 
   return router;

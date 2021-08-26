@@ -1,0 +1,42 @@
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #d2ddf3;
+}
+
+.nav-item {
+  float: left;
+  display: block;
+  color: #440a0a;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  text-transform: none;
+}
+
+.nav-item:hover:not(.active) {
+  background-color: #3761a0;
+}
+
+.button {
+  background-color: #040c75;
+  border: none;
+  padding: 10.1px;
+  padding-right: 15px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  float: right;
+}
+/*# sourceMappingURL=navbar.css.map */

@@ -46,12 +46,19 @@
                     <%= product.name%>
                   </a></b></h2>
               <button id='<%= product.product_id %>' type="submit" action="" method="POST">
-                <i class="fas fa-heart fa-3x"></i>
+                <i class="fas fa-heart fa-3x favourite"></i>
+              </button>
+            </div>
+            <div class='name-and-button'>
+              <h2><b>Seller: <a href="/seller/<%= product.seller_id%>">
+                    <%= product.seller_name%>
+                  </a></b></h2>
+              <button type="submit" action="" method="POST">
+                <i class="fas fa-comment fa-3x"></i>
               </button>
             </div>
             <h2><b>Price: $<%= product.price%></b></h2>
-            <h2><b>Brand: <a href="/categories/<%= product.cat_name%>">
-                  <%= product.cat_name%>
+            <h2><b>Brand: <%= product.brand%>
                 </a></b></h2>
             <h2><b>Description: <%= product.info%></b></h2>
           </td>
