@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="utf-8">
+<meta charset="utf-8">
+
 <head>
-      <!-- header styling -->
-      <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+  <!-- header styling -->
+  <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
 </head>
 <%- include('partials/_header') %>
-<!-- /:login
+  <!-- /:login
 
   Does not show "sign in/out" on header partial
 
@@ -15,20 +16,21 @@
   else redirects to /home, showing "signed in as [name]" and a sign out button, posting to /logout
 
 -->
-<main style="margin: 1em;">
-  <h3>You are contacting the seller for Product : <%= product_id%></h3>
+  <main style="margin: 1em;">
+    <h3>You are contacting the seller for Product : <%= product_id%>
+    </h3>
 
-  <form class="form-inline" action="/message/<%= product_id%>" method="POST">
-    <div class="form-group mb-2">
-      <input type="text" class="form-control" name="message" placeholder="Please write a message"
-        style="width: 500px; height: 100px; margin: 1em"><br><br>
-      <button type="submit" class="btn btn-primary">Message</button>
+    <form class="form-inline" action="/message/<%= product_id%>" method="POST">
+      <div class="form-group mb-2">
+        <input type="text" class="form-control" name="message" placeholder="Please write a message"
+          style="width: 500px; height: 100px; margin: 1em"><br><br>
+        <button type="submit" class="btn btn-primary">Message</button>
 
-    </div>
-  </form>
-  </body>
+      </div>
+    </form>
+    </body>
 
-</main>
+  </main>
 
 
 </html>

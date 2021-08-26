@@ -1,12 +1,14 @@
 // See: https://sass-lang.com/
 
 
-
+body{
+  background-color: #ffffff;
+}
 main {
+  display: flex;
   height: 100%;
-  padding: 0 5%;
-  flex-direction: row;
-  background-color: #f4f1ec;
+  flex-direction: column;
+  background-color: #eef2f9;
   border-bottom: 3px #545149;
   justify-content: space-evenly;
 }
