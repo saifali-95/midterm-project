@@ -10,6 +10,8 @@
 <head>
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- header styling -->
+  <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
 
   <!-- App CSS -->
   <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -30,8 +32,8 @@
 
 <% if (user) { %>
   <h1><b>
-    <%= user %>'s Favourite:
-  </b></h1>
+      <%= user %>'s Favourite:
+    </b></h1>
   <main>
     <% for(product of products) { %>
       <table class='items'>
@@ -41,22 +43,22 @@
 
             <div class='name-and-button'>
               <h2><b>Name: <a href="/products/<%= product.product_id %>">
-                <%= product.name%></a></b></h2>
+                    <%= product.name%>
+                  </a></b></h2>
               <button id='<%= product.product_id %>' type="submit" action="" method="POST">
                 <i class="fas fa-heart fa-3x"></i>
               </button>
             </div>
-              <h2><b>Price: $<%= product.price%></b></h2>
-              <h2><b>Brand: <a href="/categories/<%= product.cat_name%>">
-                <%= product.cat_name%>
-              </a></b></h2>
-              <h2><b>Description: <%= product.info%></b></h2>
-            </td>
+            <h2><b>Price: $<%= product.price%></b></h2>
+            <h2><b>Brand: <a href="/categories/<%= product.cat_name%>">
+                  <%= product.cat_name%>
+                </a></b></h2>
+            <h2><b>Description: <%= product.info%></b></h2>
+          </td>
         </tr>
-    <% } %>
-  <% } %>
-    </table>
-</main>
-<%- include('partials/_footer') %>
+        <% } %>
+          <% } %>
+      </table>
+  </main>
 
 </html>

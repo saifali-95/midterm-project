@@ -1,0 +1,43 @@
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(210, 221, 243);
+}
+
+.nav-item {
+  float: left;
+  display: block;
+  color: rgb(68, 10, 10);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration:none;
+  font-size: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  text-transform: none;
+}
+
+.nav-item:hover:not(.active) {
+  background-color: rgb(55, 97, 160);
+}
+
+.button {
+  background-color: #040c75;
+  border: none;
+  padding: 10.1px;
+  padding-right: 15px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  float: right;
+
+}

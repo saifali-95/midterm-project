@@ -9,6 +9,8 @@
   <script type="text/javascript" src="/scripts/filter-items.js"></script>
   <!-- App JS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- header styling -->
+  <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
 
   <!-- Font awesome import -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -68,10 +70,10 @@
               <h2><b>Name: <a href="/products/<%= product.id %>">
                     <%= product.name%>
                   </a></b></h2>
-                  <button id='<%= product.id %>' type="submit" action="" method="POST">
-                    <i class="fas fa-heart fa-3x"></i>
-                  </button>
-                </div>
+              <button id='<%= product.id %>' type="submit" action="" method="POST">
+                <i class="fas fa-heart fa-3x"></i>
+              </button>
+            </div>
 
             <div class='name-and-button'>
               <h2><b>Seller: <a href="/seller/<%= product.seller_id%>">
@@ -117,7 +119,3 @@
   if logged in as a "seller", hover option for deleting a post that belongs to you
 
 -->
-
-
-
-<%- include('partials/_footer') %>

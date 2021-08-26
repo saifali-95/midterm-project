@@ -9,54 +9,38 @@ Contains
 
 -->
 
-<!-- CSS (load bootstrap from a CDN) -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"> -->
-<!-- <style>
-  body { padding-top:50px; }
-</style> -->
+
+<!-- awesome font -->
 
 
-  <!-- Source Sans Pro:   font-family: 'Source Sans Pro', sans-serif;   -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
-    rel="stylesheet">
-
-  <!-- awesome font -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    referrerpolicy="no-referrer" />
-
-<style>
-  .bg-light {
-    background-color: #f8f9fa!important;
-}
-  .navbar {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding-left: 1em;
-    padding-right: 1em;
-  font-family: 'Source Sans Pro', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 1.5;
-    color: #212529;
-    text-align: left;
-    margin-bottom: 30px;
-}
-</style>
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Shoe Website</a>
-    <ul class="navbar-nav mr-auto">
+<ul class="navbar">
+  <li class="nav-item">
+    <a class="nav-link" href="/">Home</a>
+  </li>
+  <% if (locals.user) { %>
       <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/seller/mylist">My List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/products/addItem">Create a new product </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/favourite">Favourite</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/chats">Chats</a>
+      </li>
+      <li class="nav-item">
+        Hello <%= locals.user %>
+      </li>
+
+        <form action="/logout" method="POST">
+          <input type="submit" value="Logout" class="button" />
+        </form>
+
+    <% } else { %>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Sign in</a>
       </li>
       <% if (locals.user) { %>
         Hello <%= locals.user %>
@@ -87,6 +71,8 @@ Contains
         <% } %>
       </ul>
     </nav>
+      <% } %>
+</ul>
 
 <!-- App JS -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>

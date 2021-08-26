@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<head>
+  <!-- header styling -->
+  <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+</head>
 <%- include('partials/_header') %>
 
-<!-- /:itemid page
+  <!-- /:itemid page
 
   shows item attributes
   button "send [Seller] a message" that redirects to /new
 
 -->
-  <h1><b><%= product.name %></b></h1>
+  <h1><b>
+      <%= product.name %>
+    </b></h1>
   <table class='items'>
     <tr>
       <td class='item1'>
@@ -19,7 +25,9 @@
         <h2><b>Brand: <%= product.brand %></b></h2>
         <h2><b>Size: <%= product.size %></b></h2>
         <h2><b>Color: <%= product.color %></b></h2>
-        <h2><b>Seller:  <a href="/seller/<%= product.seller_id%>"><%= product.seller_name %></a></b></h2>
+        <h2><b>Seller: <a href="/seller/<%= product.seller_id%>">
+              <%= product.seller_name %>
+            </a></b></h2>
         <h2><b>Price: $<%= product.price %></b></h2>
         <h2><b>Description: <%= product.info %></b></h2>
         <% if (product['stock'] === false) { %>
@@ -31,7 +39,5 @@
     </tr>
   </table>
 
-
-<%- include('partials/_footer') %>
 
 </html>
