@@ -79,11 +79,19 @@
                     <%= product.cat_name%>
                   </a></b></h2>
               <h2><b>Description: <%= product.info%></b></h2>
+              <% if (product['stock'] === false) { %>
+                <h3>SOLD</h3>
+              <% } %>
             </td>
             <% if (seller_id) { %>
               <td>
                 <form id="deleteItem" action="/products/<%= product.id %>/delete" method='POST'>
                   <button type="submit">X</button>
+                </form>
+              </td>
+              <td>
+                <form id="soldItem" action="/products/<%= product.id %>/sold" method='POST'>
+                  <button type="submit">Sold</button>
                 </form>
               </td>
               <% } %>
