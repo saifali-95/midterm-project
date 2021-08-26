@@ -20,6 +20,11 @@ main {
   margin-left: auto;
 }
 
+img {
+  max-width: 250px;
+  height: auto;
+}
+
 .row {
   display: -webkit-box;
   display: -ms-flexbox;
