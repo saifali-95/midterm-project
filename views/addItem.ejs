@@ -1,28 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+
 <head>
   <!-- header styling -->
   <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/universal_layout.css" type="text/css" />
+
 </head>
+<header>
+  <%- include('partials/_header') %>
+</header>
 
-
-
-<%- include('partials/_header') %>
-
-  <form id="addItem" action="" method="POST">
-    <label for="name">Name</label>
-    <input type="textarea" name="name" required/>
-    <label for="info">Info</label>
-    <input type="textarea" name="info" required/>
-    <label for="size">Size</label>
-    <input type="text" name="size" required/>
-    <label for="category">Category</label>
-    <input type="text" name="category" required/>
-    <label for="color">Color</label>
-    <input type="text" name="color" required/>
-    <label for="brand">Brand</label>
-    <input type="text" name="brand" required/>
-    <label for="price">Price</label>
-    <input type="text" name="price" required/>
-    <label for="photo">Photo</label>
-    <input type="text" name="photo" required/>
-    <button type="submit">Add Item</button>
-  </form>
+<body>
+  <h1><b>Add a new shoe to sell:</b></h1>
+  <main>
+    <form id="addItem" action="" method="POST">
+      <label for="name">Name</label>
+      <input type="textarea" name="name" required/>
+      <label for="info">Info</label>
+      <input type="textarea" name="info" required/>
+      <label for="size">Size</label>
+      <input type="text" name="size" required/>
+      <label for="category">Category</label>
+      <input type="text" name="category" required/>
+      <label for="color">Color</label>
+      <input type="text" name="color" required/>
+      <label for="brand">Brand</label>
+      <input type="text" name="brand" required/>
+      <label for="price">Price</label>
+      <input type="text" name="price" required/>
+      <label for="photo">Photo</label>
+      <input type="text" name="photo" required/>
+      <button type="submit">Add Item</button>
+    </form>
+  </main>
+</body>

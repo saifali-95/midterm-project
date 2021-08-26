@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="utf-8">
+<meta charset="utf-8">
+
 <head>
-    <!-- header styling -->
-    <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+  <!-- header styling -->
+  <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/universal_layout.css" type="text/css" />
 </head>
-<%- include('partials/_header') %>
-<!-- /:login
 
-  Does not show "sign in/out" on header partial
+<header>
+  <%- include('partials/_header') %>
+</header>
 
-  POST Input fields for name/password
-  returns an error message if invalid entry,
-  else redirects to /home, showing "signed in as [name]" and a sign out button, posting to /logout
+<body>
+  <main style="margin: 1em;">
 
--->
-<main style="margin: 1em;">
-  <h3>All Your Chat Conversation with Other User </h3>
-  <div>
-    <% for(let chat in data) { %>
+    <h3>All Your Chat Conversation with Other User </h3>
 
-      <h2><b>Chat:  <a href="/chats/<%= data[chat]['id'] %>"><%= data[chat]['id'] %> </a></b></h2>
-      <h2>  </h2>
+    <div>
+      <% for(let chat in data) { %>
+        <h2><b>Chat: <a href="/chats/<%= data[chat]['id'] %>">
+              <%= data[chat]['id'] %>
+            </a></b></h2>
+        <h2> </h2>
+        <% } %>
+    </div>
 
-    <% } %>
-  </div>
-  </body>
 
-</main>
-
+  </main>
+</body>
 
 </html>

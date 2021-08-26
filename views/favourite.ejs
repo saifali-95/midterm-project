@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta charset="utf-8">
 
-<!-- /:sellerid page
-
-  shows all items being sold by [seller], same layout and functionality as show_categories
-
--->
 
 <head>
   <!-- App CSS -->
@@ -32,7 +28,7 @@
 
 <% if (user) { %>
   <h1><b>
-      <%= user %>'s Favourite:
+      <%= user %>'s Favourited Shoes:
     </b></h1>
   <main>
     <% for(product of products) { %>

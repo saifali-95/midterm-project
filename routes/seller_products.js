@@ -23,6 +23,7 @@ module.exports = (db) => {
         seller_id,
         user: req.session.name
       }
+      console.log(templateVars.user, "templateVars.user");
       res.render("show_seller", templateVars);
     })
   })
