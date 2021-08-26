@@ -33,50 +33,64 @@
 </header>
 
 <body>
-  <h1><b>
-      <%= user %>'s Shoes For Sale:
-    </b></h1>
-  <% for(product of products) { %>
-    <main>
-      <table class='items'>
-        <tr>
-          <td class='item1'>
-            <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+  <h1><b> <%= user %>'s Shoes For Sale:</b></h1>
+  <main>
+    <div class="filter-by">
+      <h2>Filter By Price</h2>
+      <form id='price-filter' action='/categories/<%= categoryName %>/price' method="POST">
 
-            <div class='name-and-button'>
-              <h2><b>Name: <a href="/products/<%= product.id %>">
+        <input type="range" min="1" max="300" value="150" class="slider" id="myRange" name="price">
+        <div id="price-and-val">
+          <h2>Show items less than: $<span id="demo"></span></h2>
+          <input id='price-button' type="submit" value="Filter">
+        </div>
+      </form>
+    </div>
+
+    <section>
+      <% for(product of products) { %>
+        <div class='card'>
+
+          <div class="product-img">
+            <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+          </div>
+
+          <div class='product-specs'>
+            <div class=' name-and-button'>
+              <h3><b>Name: <a href="/products/<%= product.id %>">
                     <%= product.name%>
-                  </a></b></h2>
+                  </a></b></h3>
               <button type="submit" action="" method="POST">
-                <i class="fas fa-heart fa-3x"></i>
+                <i class="fas fa-heart fa-2x"></i>
               </button>
             </div>
 
-            <h2><b>Price: $<%= product.price%></b></h2>
-            <h2><b>Brand: <a href="/categories/<%= product.cat_name%>">
+            <h3><b>Price: $<%= product.price%></b></h3>
+            <h3><b>Brand: <a href="/categories/<%= product.cat_name%>">
                   <%= product.cat_name%>
                 </a></b></h2>
-            <h2><b>Description: <%= product.info%></b></h2>
-            <% if (product['stock']===false) { %>
-              <h3>SOLD</h3>
-              <% } %>
-          </td>
-          <% if (seller_id) { %>
-            <td>
-              <form id="deleteItem" action="/products/<%= product.id %>/delete" method='POST'>
-                <button type="submit">X</button>
-              </form>
-            </td>
-            <td>
-              <form id="soldItem" action="/products/<%= product.id %>/sold" method='POST'>
-                <button type="submit">Sold</button>
-              </form>
-            </td>
-            <% } %>
-        </tr>
+              <h3><b>Description: <%= product.info%></b></h3>
+              <% if (product['stock']===false) { %>
+                <h3>SOLD</h3>
+                <% } %>
+
+                  <% if (seller_id) { %>
+                    <td>
+                      <form id="deleteItem" action="/products/<%= product.id %>/delete" method='POST'>
+                        <button type="submit">X</button>
+                      </form>
+                    </td>
+                    <td>
+                      <form id="soldItem" action="/products/<%= product.id %>/sold" method='POST'>
+                        <button type="submit">Sold</button>
+                      </form>
+                    </td>
+                    <% } %>
+          </div>
+        </div>
         <% } %>
-      </table>
-    </main>
+    </section>
+  </main>
 </body>
 
 </html>
