@@ -86,6 +86,9 @@
 
             <h2><b>Price: $<%= product.price%></b></h2>
             <h2><b>Description: <%= product.info%></b></h2>
+            <% if (product['stock'] === false) { %>
+              <h2>SOLD</h2>
+            <% } %>
             <h2><b><a href="/message/<%= product.id%>"> Contact Seller: </a></b></h2>
           </td>
 

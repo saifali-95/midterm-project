@@ -30,6 +30,11 @@
             </a></b></h2>
         <h2><b>Price: $<%= product.price %></b></h2>
         <h2><b>Description: <%= product.info %></b></h2>
+        <% if (product['stock'] === false) { %>
+          <h2>Availability: SOLD OUT</h2>
+        <% } else { %>
+          <h2>Availability: In Stock</h2>
+        <% } %>
       </td>
     </tr>
   </table>
