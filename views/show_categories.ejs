@@ -18,29 +18,27 @@
 
 </head>
 
+<header>
+  <%- include('partials/_header') %>
+</header>
 
+<body>
+  <h1><b>Category: <%= categoryName %></b></h1>
 
-  <header>
-    <%- include('partials/_header') %>
-  </header>
-  <body>
-
-    <h1><b>Category: <%= categoryName %></b></h1>
   <main>
-
-      <h4>Filter By</h4>
-      <div class="filter-by">
-          <li>Price</li>
-          <form id='price-filter' action='/categories/<%= categoryName %>/price' method="POST">
-            <div class="slidecontainer">
-              <input type="range" min="1" max="300" value="150" class="slider" id="myRange" name="price">
-              <div id="price-and-val">
-                <p>Show items less than: $<span id="demo"></span></p>
-                <input id='price-button' type="submit" value="Filter">
-              </div>
-            </div>
-          </form>
-      </div>
+    <h4>Filter By</h4>
+    <div class="filter-by">
+      <li>Price</li>
+      <form id='price-filter' action='/categories/<%= categoryName %>/price' method="POST">
+        <div class="slidecontainer">
+          <input type="range" min="1" max="300" value="150" class="slider" id="myRange" name="price">
+          <div id="price-and-val">
+            <p>Show items less than: $<span id="demo"></span></p>
+            <input id='price-button' type="submit" value="Filter">
+          </div>
+        </div>
+      </form>
+    </div>
 
 
     <table class='items'>
@@ -72,18 +70,16 @@
 
             <h2><b>Price: $<%= product.price%></b></h2>
             <h2><b>Description: <%= product.info%></b></h2>
-            <% if (product['stock'] === false) { %>
+            <% if (product['stock']===false) { %>
               <h2>SOLD</h2>
-            <% } %>
-            <h2><b><a href="/message/<%= product.id%>"> Contact Seller: </a></b></h2>
+              <% } %>
+                <h2><b><a href="/message/<%= product.id%>"> Contact Seller: </a></b></h2>
           </td>
 
         </tr>
         <% } %>
 
     </table>
-    </div>
-    </div>
   </main>
 </body>
 
