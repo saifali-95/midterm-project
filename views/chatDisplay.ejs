@@ -24,7 +24,7 @@
       <% if (data[item]['from_id'] === user_id) { %>
         <h3> You : <%= data[item]['message'] %> </h3>
       <% } else { %>
-        <h3> <%= data[item]['from_name'] %> : <%= data[item]['message'] %> </h3>
+        <h2><i><%= data[item]['from_name'] %> : <%= data[item]['message'] %></i>  </h2>
       <% }%>
     <% } %>
   </div>

@@ -18,10 +18,34 @@ module.exports = (db) => {
     const user_id = req.session.user_id;
     const user = req.session.name;
 
-    db.query(`SELECT id FROM chat_service WHERE from_id = $1 OR to_id = $1`, [user_id])
+
+    db.query(`SELECT * FROM chat_service WHERE from_id = $1 OR to_id = $1`, [user_id])
     .then(data => {
-      const templateVars =  {data: data.rows, user_id, user};
-      res.render("chats", templateVars)
+      const to_id = data.rows[0].to_id;
+      console.log('user_id', user_id);
+      console.log('to_id', to_id);
+      if(user_id === to_id) {
+
+        db.query(`SELECT chat_service.id, from_id, to_id, product_id, products.name, users.name as from_name FROM chat_service JOIN products ON product_id = products.id JOIN users ON users.id = from_id  WHERE from_id = $1 OR to_id = $1;
+        `, [user_id])
+        .then(data => {
+          const templateVars =  {data: data.rows, user_id, user};
+          console.log('Iva Harris Vars', templateVars);
+          res.render("chats", templateVars)
+        })
+
+      }
+      else {
+
+        db.query(`SELECT chat_service.id, from_id, to_id, product_id, products.name, users.name as from_name FROM chat_service JOIN products ON product_id = products.id JOIN users ON users.id = to_id  WHERE from_id = $1 OR to_id = $1;
+        `, [user_id])
+        .then(data => {
+          const templateVars =  {data: data.rows, user_id, user};
+          console.log('Saif Vars', templateVars);
+          res.render("chats", templateVars)
+        })
+
+      }
     })
     return;
   });
