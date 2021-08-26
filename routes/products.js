@@ -33,7 +33,7 @@ module.exports = (db) => {
         product: data.rows[0],
         user: req.session.name
       }
-      console.log(data.rows)
+
       res.render("show_item", templateVars);
     })
     .catch(err => {
