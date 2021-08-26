@@ -1,6 +1,6 @@
 body{
   background-color: #ffffff;
-
+  height:100%
 }
 main {
   display: flex;
@@ -9,4 +9,17 @@ main {
   background-color: #eef2f9;
   border-bottom: 3px #545149;
   justify-content: space-evenly;
+  padding: 0% 3% 3%;
 }
+
+
+.list-container {
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  resize: both;
+  overflow:auto;
+}
+
+
