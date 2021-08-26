@@ -67,6 +67,7 @@ module.exports = (db) => {
         to: `${phone}`
       })
 
+      res.redirect("/chats")
     })
     })
 
