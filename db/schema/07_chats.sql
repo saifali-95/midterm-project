@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS messages CASCADE;
+DROP TABLE IF EXISTS chats CASCADE;
 
--- Create Messages Table
+-- Create chats Table
 CREATE TABLE chats (
   id SERIAL PRIMARY KEY NOT NULL,
   chat_service_id INTEGER REFERENCES chat_service(id) ON DELETE CASCADE,

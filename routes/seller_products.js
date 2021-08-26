@@ -15,7 +15,6 @@ module.exports = (db) => {
       WHERE seller_id = $1
     `, [seller_id])
     .then(data => {
-      console.log(data.rows);
       const templateVars = {
         products: data.rows,
         seller_id,
