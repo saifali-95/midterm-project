@@ -33,7 +33,7 @@ module.exports = (db) => {
         product: data.rows[0],
         user: req.session.name
       }
-      console.log(data.rows)
+
       res.render("show_item", templateVars);
     })
     .catch(err => {
@@ -102,5 +102,29 @@ module.exports = (db) => {
       res.send().status().json({err: err.message})
     })
   });
+
+  router.post("/:id/sold", (req, res) => {
+    const product_id =  req.params.id;
+    const seller_id = req.session.user_id
+
+    console.log('Sold Item');
+
+
+    if (!seller_id) {
+      return res.send("Please login first!");
+    }
+    db.query(`
+      UPDATE products
+      SET stock = false
+      WHERE products.id = $1;
+    `, [product_id])
+    .then(() => res.redirect("/seller/mylist"))
+    .catch(err => {
+      res.send().status().json({err: err.message})
+    })
+
+  })
+
+
   return router;
 };
