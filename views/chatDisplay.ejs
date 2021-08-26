@@ -27,7 +27,7 @@
       <% if (data[item]['from_id'] === user_id) { %>
         <h3> You : <%= data[item]['message'] %> </h3>
       <% } else { %>
-        <h3> <%= data[item]['from_name'] %> : <%= data[item]['message'] %> </h3>
+        <h2><i><%= data[item]['from_name'] %> : <%= data[item]['message'] %></i>  </h2>
       <% }%>
     <% } %>
   </div>
@@ -38,18 +38,7 @@
         style="width: 500px; height: 100px; margin: 1em"><br><br>
       <button type="submit" class="btn btn-primary">Reply</button>
 
-        <% } %>
     </div>
-
-    <form class="form-inline" action="/chats/<%=chat_id%>" method="POST">
-      <div class="form-group mb-2">
-        <input type="text" class="form-control" name="message" placeholder="Please write a message"
-          style="width: 500px; height: 100px; margin: 1em"><br><br>
-        <button type="submit" class="btn btn-primary">Reply</button>
-
-      </div>
-    </form>
-
 
   </main>
 

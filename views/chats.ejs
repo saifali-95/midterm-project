@@ -12,22 +12,13 @@
   <%- include('partials/_header') %>
 </header>
 
-<body>
-  <main style="margin: 1em;">
+<main style="margin: 1em;">
+  <h3>All Your Chat Conversation with Other Users </h3>
+  <div>
+    <% for(let chat in data) { %>
 
-    <h3>All Your Chat Conversation with Other User </h3>
-
-    <div>
-      <% for(let chat in data) { %>
-        <h2><b>Chat: <a href="/chats/<%= data[chat]['id'] %>">
-              <%= data[chat]['id'] %>
-            </a></b></h2>
-        <h2> </h2>
-        <% } %>
+      <h2><b><a href="/chats/<%= data[chat]['id'] %>"><%= data[chat]['from_name'] %> for <%= data[chat]['name'] %> </a></b></h2>
+    <% } %>
     </div>
-
-
-  </main>
-</body>
 
 </html>
