@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAC;EACH,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,gBAAgB,EAAE,OAAO;EACzB,aAAa,EAAE,WAAW;EAC1B,eAAe,EAAE,YAAY;CAC9B",
+    "sources": [
+        "universal_layout.scss"
+    ],
+    "names": [],
+    "file": "universal_layout.css"
+}

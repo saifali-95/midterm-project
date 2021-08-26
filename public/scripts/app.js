@@ -19,9 +19,11 @@ $(document).ready(function() {
       type: 'POST',
       data: $txt,
       success: callback
-    });
-    $("#addItem")[0].reset();
-    window.location = "/seller/mylist";
+    })
+    .done(() => {
+      window.location = "/seller/mylist";
+    })
+    // $("#addItem")[0].reset();
   };
 
   $('.fa-heart').click(function() {
@@ -31,6 +33,8 @@ $(document).ready(function() {
       type:'POST',
       data: {productId}
     })
-    location.reload();
+    .done(() => {
+        location.reload();
+    })
   })
 });

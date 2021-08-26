@@ -1,0 +1,40 @@
+.card {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  margin: 10px;
+  font-size: 30px;
+  background-color: #d2ddf3;
+}
+
+.shoe-img {
+  height: auto;
+  max-width: 300px;
+  padding: .25em;
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.4);
+          box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.4);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 3em 10em;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: #eef2f9;
+  border-bottom: 3px #545149;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+/*# sourceMappingURL=index.css.map */
