@@ -16,7 +16,7 @@ module.exports = (db) => {
       return res.send("Please <a href='/login'>login</a> first!")
     }
     db.query(`
-      SELECT * FROM favourites
+      SELECT products.*, favourites.* FROM favourites
       JOIN products ON product_id = products.id
       WHERE user_id = $1
     `, [user_id])
@@ -29,20 +29,43 @@ module.exports = (db) => {
       res.render("favourite", templateVars);
     })
   });
+
   router.post("/", (req, res) => {
-    const {product_id} = req.body;
+    const {productId} = req.body;
     if (req.session.user_id) {
       const user_id = req.session.user_id;
       db.query(`
-        INSERT INTO favourites (user_id, product_id)
-        VALUES($1, $2);
-        `, [user_id, product_id])
-        .then()
-        .catch(err => {
-          console.log("catching an error", err);
-          res.send().status().json({err: err.message})
-        }) ;
-         return res.redirect("/");
+       SELECT * FROM favourites
+       WHERE user_id = $1
+       AND product_id = $2`, [user_id, productId])
+      .then(data => {
+        if (data.rows.length === 0) {
+          db.query(`
+            INSERT INTO favourites (user_id, product_id)
+            VALUES($1, $2);
+          `, [user_id, productId])
+          .then(() => console.log("then 2:"))
+          .catch(err => {
+            console.log("catch 1:", err);
+            // return res.json({err: err.message})
+          });
+        } else {
+          db.query(`
+          DELETE FROM favourites
+          WHERE user_id = $1
+          AND product_id = $2`, [user_id, productId])
+          .then()
+          .catch(err => {
+            console.log("catch 2: ", err);
+            // return res.json({err: err.message})
+          }) ;
+        }
+      })
+      .catch(err => {
+        console.log("catch 3:", err);
+
+        // return res.json({err: err.message})
+      });
     }
       return res.send("Please login first!!!");
   });

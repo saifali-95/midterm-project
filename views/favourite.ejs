@@ -36,13 +36,13 @@
     <% for(product of products) { %>
       <table class='items'>
         <tr>
-          <td class='item1' data-href='/products/<%= product.id %>'>
+          <td class='item1'>
             <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
 
             <div class='name-and-button'>
-              <h2><b>Name: <a href="/products/<%= product.id %>">
+              <h2><b>Name: <a href="/products/<%= product.product_id %>">
                 <%= product.name%></a></b></h2>
-              <button type="submit" action="" method="POST">
+              <button id='<%= product.product_id %>' type="submit" action="" method="POST">
                 <i class="fas fa-heart fa-3x"></i>
               </button>
             </div>
@@ -52,14 +52,7 @@
               </a></b></h2>
               <h2><b>Description: <%= product.info%></b></h2>
             </td>
-            <% if (user_id) { %>
-              <td>
-                <form id="deleteItem" action="/products/<%= product.id %>/delete" method='POST'>
-                  <button type="submit">X</button>
-                </form>
-              </td>
-              <% } %>
-            </tr>
+        </tr>
     <% } %>
   <% } %>
     </table>

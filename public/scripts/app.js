@@ -25,12 +25,12 @@ $(document).ready(function() {
   };
 
   $('.fa-heart').click(function() {
-    const productId = $('.item1').id
-    console.log(productId)
-    // $.ajax({
-    //   url:'/favourite',
-    //   type:'POST'
-    //   data:
-    // })
+    const productId = $(this).parent().attr('id')
+    $.ajax({
+      url:'/favourite',
+      type:'POST',
+      data: {productId}
+    })
+    location.reload();
   })
 });
