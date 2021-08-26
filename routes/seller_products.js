@@ -49,6 +49,7 @@ module.exports = (db) => {
       const templateVars = {
         products: data.rows,
         seller_id,
+        sellerID,
         user: req.session.name
       }
       res.render("show_seller", templateVars);
