@@ -28,14 +28,13 @@ module.exports = (db) => {
 
   router.get("/:id", (req, res) => {
     const user = req.session.name;
+    const user_id = req.session.user_id;
     const chat_id = req.params.id;
 
-    //const user = req.session.name;
-
-    db.query(`SELECT to_id, from_id, message, time FROM chats WHERE chat_service_id = $1;`, [chat_id])
+    db.query(`SELECT message, users.name as from_name, from_id ,products.name  FROM chats JOIN users ON users.id = from_id JOIN products ON products.id = product_id WHERE chat_service_id = $1;
+    `, [chat_id])
     .then(data => {
-
-      const templateVars =  {data: data.rows, user, chat_id};
+      const templateVars =  {data: data.rows, user, user_id, chat_id};
       res.render("chatDisplay", templateVars)
     })
     return;
