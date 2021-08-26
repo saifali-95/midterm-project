@@ -13,6 +13,11 @@ main {
   justify-content: space-evenly;
 }
 
+section {
+  display: flex;
+  flex-direction: row;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -34,7 +39,7 @@ main {
 
 #price-and-val {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   margin: 10px 0px;
 }
@@ -67,15 +72,25 @@ img {
 
 
 
+.filter-by {
+  display: flex;
+  flex-direction: column;
+  padding: 0% 3%;
+  width: 50%;
+}
 
 
 
+p {
+  margin: 0;
+  width: fit-content;
+  font-size: 35px;
+}
 
-
-.slidecontainer {
-  width: 55%;
-  margin-bottom: 10%;
-  border-bottom: 7px solid #4056A1;
+#price-and-val {
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
 }
 
 .slider {
@@ -109,12 +124,6 @@ img {
   }
 
 
-
-  p {
-    margin: 0;
-    width: fit-content;
-    font-size: 35px;
-  }
 
 
 

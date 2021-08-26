@@ -27,64 +27,58 @@
   <h1><b>Category: <%= categoryName %></b></h1>
 
   <main>
-    <h4>Filter By</h4>
     <div class="filter-by">
-      <li>Price</li>
+      <h2>Filter By Price</h2>
       <form id='price-filter' action='/categories/<%= categoryName %>/price' method="POST">
-        <div class="slidecontainer">
+
           <input type="range" min="1" max="300" value="150" class="slider" id="myRange" name="price">
           <div id="price-and-val">
-            <p>Show items less than: $<span id="demo"></span></p>
+            <h2>Show items less than: $<span id="demo"></span></h2>
             <input id='price-button' type="submit" value="Filter">
           </div>
-        </div>
       </form>
     </div>
 
-
-    <table class='items'>
-
+    <section>
       <% for(product of products) { %>
 
-        <tr>
-          <td class='card'>
+        <div class='card'>
 
-            <div class="product-img">
-              <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+          <div class="product-img">
+            <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+          </div>
+
+          <div class='product-specs'>
+            <div class='name-and-button'>
+              <h3><b>Name: <a href="/products/<%= product.id %>">
+                    <%= product.name%>
+                  </a></b></h3>
+              <button class="fav" id='<%= product.id %>' type="submit" action="" method="POST">
+                <i class="fas fa-heart fa-2x"></i>
+              </button>
             </div>
-
-            <div class='product-specs'>
-              <div class='name-and-button'>
-                <h3><b>Name: <a href="/products/<%= product.id %>">
-                      <%= product.name%>
-                    </a></b></h3>
-                <button class="fav" id='<%= product.id %>' type="submit" action="" method="POST">
-                  <i class="fas fa-heart fa-2x"></i>
-                </button>
-              </div>
-              <div class='name-and-button'>
-                <h3><b>Seller: <a href="/seller/<%= product.seller_id%>">
-                      <%= product.seller_name%>
-                    </a></b></h3>
-                <a href="/message/<%= product.id%>">
-                  <button type="submit" action="" method="POST">
-                    <i class="fas fa-comment fa-2x"></i>
-                  </button> </a>
-              </div>
-              <h3><b>Price: $<%= product.price%></b></h3>
-              <h3><b>Description: <%= product.info%></b></h3>
-              <% if (product['stock']===false) { %>
-                <h2>SOLD</h2>
-                <% } %>
-                  <h3><b><a href="/message/<%= product.id%>"> Contact Seller: </a></b></h3>
+            <div class='name-and-button'>
+              <h3><b>Seller: <a href="/seller/<%= product.seller_id%>">
+                    <%= product.seller_name%>
+                  </a></b></h3>
+              <a href="/message/<%= product.id%>">
+                <button type="submit" action="" method="POST">
+                  <i class="fas fa-comment fa-2x"></i>
+                </button> </a>
             </div>
-
-          </td>
-        </tr>
+            <h3><b>Price: $<%= product.price%></b></h3>
+            <h3><b>Description: <%= product.info%></b></h3>
+            <% if (product['stock']===false) { %>
+              <h2>SOLD</h2>
+              <% } %>
+                <h3><b><a href="/message/<%= product.id%>"> Contact Seller: </a></b></h3>
+          </div>
+        </div>
         <% } %>
-
-    </table>
+    </section>
   </main>
+
+
   <script>
     $('.fav').click(function () {
       $(this).children().toggleClass("favourite");
