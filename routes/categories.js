@@ -52,7 +52,8 @@ module.exports = (db) => {
       .then(data => {
         const products = {
           products: data.rows,
-          categoryName
+          categoryName,
+          user : req.session.name
         }
         products.products = products.products.filter(product => {
           return product.price < priceLim;
