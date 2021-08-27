@@ -16,8 +16,9 @@ module.exports = (db) => {
       return res.send("Please <a href='/login'>login</a> first!")
     }
     db.query(`
-      SELECT products.*, favourites.* FROM favourites
+      SELECT users.name as seller_name, products.*, favourites.* FROM favourites
       JOIN products ON product_id = products.id
+      JOIN users on users.id = seller_id
       WHERE user_id = $1
     `, [user_id])
     .then(data => {
@@ -26,6 +27,7 @@ module.exports = (db) => {
         user: req.session.name,
         user_id,
       }
+      console.log(templateVars);
       res.render("favourite", templateVars);
     })
   });
