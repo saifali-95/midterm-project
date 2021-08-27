@@ -57,6 +57,10 @@
             <h2><b>Brand: <%= product.brand%>
                 </a></b></h2>
             <h2><b>Description: <%= product.info%></b></h2>
+            <% if (product['stock']===false) { %>
+              <h3>SOLD</h3>
+              <% } %>
+
           </td>
         </tr>
         <% } %>

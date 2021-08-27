@@ -33,11 +33,11 @@
 </header>
 
 <body>
-  <h1><b> <%= user %>'s Shoes For Sale:</b></h1>
+  <h1><b> <%= locals.seller_name %>'s Shoes For Sale:</b></h1>
   <main>
     <div class="filter-by">
       <h2>Filter By Price</h2>
-      <form id='price-filter' action='/price' method="POST">
+      <form id='price-filter' action='/seller/<%= locals.seller_id %>/price' method="POST">
 
         <input type="range" min="1" max="300" value="150" class="slider" id="myRange" name="price">
         <div id="price-and-val">
@@ -74,7 +74,7 @@
                 <h3>SOLD</h3>
                 <% } %>
 
-                  <% if (seller_id) { %>
+                  <% if (seller_id === admin_id) { %>
                     <td>
                       <form id="deleteItem" action="/products/<%= product.id %>/delete" method='POST'>
                         <button type="submit">X</button>
