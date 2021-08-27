@@ -68,23 +68,25 @@
               <h3><b>Description: <%= product.info%></b></h3>
           </div>
           <div class="delete-or-sell">
-            <% if (product['stock']===false) { %>
-              <h3>Item has been SOLD</h3>
-              <% } else {%>
-                <form id="soldItem" action="/products/<%= product.id %>/sold" method='POST'>
-                  <button class="button-ds" type="submit">Mark as Sold</button>
-                </form>
-                <% } %>
-                  <% if (seller_id===admin_id) { %>
-                    <form id="deleteItem" action="/products/<%= product.id %>/delete" method='POST'>
-                      <button class="button-ds" type="submit">Delete Item</button>
-                    </form>
-          </div>
+                  <% if (product['stock']===false) { %>
+                    <h3>Item has been SOLD</h3>
+                    <% } else {%>
+                      <form id="soldItem" action="/products/<%= product.id %>/sold" method='POST'>
+                        <button class="button-ds" type="submit">Mark as Sold</button>
+                      </form>
+                      <% } %>
 
-          <% } %>
+                      <% if (seller_id===admin_id) { %>
+                  <form id="deleteItem" action="/products/<%= product.id %>/delete" method='POST'>
+                    <button class="button-ds" type="submit">Delete Item</button>
+                  </form>
+
+                </div>
+
+                <% } %>
         </div>
-        <% } %>
-    </section>
+      </section>
+      <% } %>
   </main>
 </body>
 
