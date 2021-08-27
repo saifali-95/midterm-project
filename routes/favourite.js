@@ -26,6 +26,10 @@ module.exports = (db) => {
         user: req.session.name,
         user_id,
       }
+
+      console.log("data.rows: ", data.rows);
+      console.log("user: ", user);
+
       res.render("favourite", templateVars);
     })
   });
