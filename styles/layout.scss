@@ -141,3 +141,27 @@ p {
 .favourite {
   color: #ff0000;
 }
+
+.delete-or-sell {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.button-ds {
+  background-color: rgba(53, 79, 119, 0.597);
+  border: none;
+  padding: 10.1px;
+  padding-right: 15px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  width: auto;
+  height: 40px;
+  cursor: pointer;
+  float: right;
+  vertical-align: center;
+
+}

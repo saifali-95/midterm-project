@@ -6,6 +6,8 @@
   <!-- header styling -->
   <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
   <link rel="stylesheet" href="/styles/universal_layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/showItem.css" type="text/css" />
+
 </head>
 <%- include('partials/_header') %>
 
@@ -21,28 +23,27 @@
         <%= product.name %>
       </b></h1>
     <main>
-      <table class='items'>
-        <tr>
-          <td class='item1'>
-            <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
-            <h2><b>Name: <%= product.name %></b></h2>
-            <h2><b>Category: <%= product.category_name %></b></h2>
-            <h2><b>Brand: <%= product.brand %></b></h2>
-            <h2><b>Size: <%= product.size %></b></h2>
-            <h2><b>Color: <%= product.color %></b></h2>
-            <h2><b>Seller: <a href="/seller/<%= product.seller_id%>">
-                  <%= product.seller_name %>
-                </a></b></h2>
-            <h2><b>Price: $<%= product.price %></b></h2>
-            <h2><b>Description: <%= product.info %></b></h2>
-            <% if (product['stock']===false) { %>
-              <h2>Availability: SOLD OUT</h2>
-              <% } else { %>
-                <h2>Availability: In Stock</h2>
-                <% } %>
-          </td>
-        </tr>
-      </table>
+      <section>
+      <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+
+      <div class="shoe-specs">
+        <h3><b>Name: <%= product.name %></b></h3>
+        <h3><b>Category: <%= product.category_name %></b></h3>
+        <h3><b>Brand: <%= product.brand %></b></h3>
+        <h3><b>Size: <%= product.size %></b></h3>
+        <h3><b>Color: <%= product.color %></b></h3>
+        <h3><b>Seller: <a href="/seller/<%= product.seller_id%>">
+          <%= product.seller %>
+        </a></b></h2>
+        <h3><b>Price: $<%= product.price %></b></h3>
+        <h3><b>Description: <%= product.info %></b></h3>
+        <% if (product['stock']===false) { %>
+          <h2 class="sold-out">Availability: SOLD OUT</h2>
+          <% } else { %>
+            <h2 class="in-stock">Availability: In Stock</h2>
+            <% } %>
+          </div>
+      </section>
     </main>
   </body>
 

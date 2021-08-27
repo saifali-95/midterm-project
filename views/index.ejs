@@ -8,12 +8,13 @@
   <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
 </head>
 
+
+<header>
+  <%- include('partials/_header') %>
+</header>
+
 <body>
-
-  <header>
-    <%- include('partials/_header') %>
-  </header>
-
+  <h1><b>Welcome to Easy Shoe! Please select a category to view.</b></h1>
   <main>
     <div class="card">
       <a href="/categories/Running%20Shoes">
@@ -40,8 +41,8 @@
 
     <div class="card">
       <a href="/categories/Basketball%20Shoes">
-        <img class='shoe-img'
-        src='https://m.media-amazon.com/images/I/71Q3Q3KQk7L._AC_UL320_.jpg' alt="men's basketball shoes">
+        <img class='shoe-img' src='https://m.media-amazon.com/images/I/71Q3Q3KQk7L._AC_UL320_.jpg'
+          alt="men's basketball shoes">
         <div class="container">
           <p>Men's Basketball</p>
         </div>

@@ -1,0 +1,38 @@
+img {
+  max-width: 500px;
+  height:auto;
+  margin-top: 3em;
+  background-color: white;
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.shoe-specs {
+  margin-top: 3em;
+  display: flex;
+  flex-direction: column;
+  padding-left: 3em;
+  padding-right: 12em;
+
+}
+
+h3 {
+  margin: 10px 0px;
+}
+
+.in-stock {
+  color:#2c823a;
+}
+
+.sold-out {
+  color:#822c2c;
+}
+
+li {
+  padding-left: 3em;
+  list-style: none;
+}

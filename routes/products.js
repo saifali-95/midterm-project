@@ -31,9 +31,10 @@ module.exports = (db) => {
       .then(data => {
         const templateVars = {
           product: data.rows[0],
-          user: req.session.name
+          user: req.session.name,
+          seller: product.seller
         }
-
+        console.log("data.rows[0]", data.rows[0]);
         res.render("show_item", templateVars);
       })
       .catch(err => {
