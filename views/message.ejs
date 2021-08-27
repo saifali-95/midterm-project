@@ -1,37 +1,31 @@
 <!-- <!DOCTYPE html>
 <html lang="en">
 <meta charset="utf-8">
-
-<head>
-  <!-- header styling -->
-  <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
-</head>
-<%- include('partials/_header') %>
-  <!-- /:login
-
-  Does not show "sign in/out" on header partial
-
-  POST Input fields for name/password
-  returns an error message if invalid entry,
-  else redirects to /home, showing "signed in as [name]" and a sign out button, posting to /logout
-
 -->
-<main style="margin: 1em;">
-  <h3>You are contacting <%= data['seller_name']%> for Product : <%= data['product_name'] %></h3>
+<head>
+  <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/universal_layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/addItem.css" type="text/css" />
+</head>
 
-    <form class="form-inline" action="/message/<%= product_id%>" method="POST">
-      <div class="form-group mb-2">
-        <input type="text" class="form-control" name="message" placeholder="Please write a message"
-          style="width: 500px; height: 100px; margin: 1em"><br><br>
-        <button type="submit" class="btn btn-primary">Message</button>
+<header>
+<%- include('partials/_header') %>
+</header>
+<body>
+  <h2>You are contacting <%= data['seller_name']%> for Product : <%= data['product_name'] %></h2>
+<main>
 
+    <form class="message-form" action="/message/<%= product_id%>" method="POST">
+      <div class="message">
+        <input class="message-input" type="text" name="message" placeholder="Please write a message"><br><br>
+        <button type="submit" class="button">Message</button>
       </div>
     </form>
-    </body>
 
   </main>
+</body>
 
 
-</html> -->
+</html>
 
 

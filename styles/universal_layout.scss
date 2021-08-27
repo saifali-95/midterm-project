@@ -4,7 +4,7 @@ body{
 }
 main {
   display: flex;
-  height: 100%;
+  height: fit-content;
   flex-direction: column;
   background-color: #eef2f9;
   border-bottom: 3px #545149;

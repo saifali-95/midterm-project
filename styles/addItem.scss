@@ -35,7 +35,25 @@ option:hover {
   background-color: white;
 }
 
+
+
+
 .new-input {
   list-style: none;
   margin: 10px 0px;
+}
+
+.message-form {
+  display:flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+.message {
+  margin-top: 20px;
+}
+
+.message-input {
+  padding-bottom: 10%;
+  width: 100%;
 }
