@@ -57,6 +57,7 @@
                 <i class="fas fa-heart fa-2x"></i>
               </button>
             </div>
+
             <div class='name-and-button'>
               <h3><b>Seller: <a href="/seller/<%= product.seller_id%>">
                     <%= product.seller_name%>
@@ -66,12 +67,14 @@
                   <i class="fas fa-comment fa-2x"></i>
                 </button> </a>
             </div>
+
             <h3><b>Price: $<%= product.price%></b></h3>
             <h3><b>Description: <%= product.info%></b></h3>
             <% if (product['stock']===false) { %>
-              <h2>SOLD</h2>
+              <h3>SOLD</h3>
               <% } %>
-          </div>
+
+            </div>
         </div>
         <% } %>
     </section>

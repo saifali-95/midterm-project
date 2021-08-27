@@ -30,13 +30,19 @@
   <h1><b>
       <%= user %>'s Favourited Shoes:
     </b></h1>
-  <main>
-    <% for(product of products) { %>
-      <table class='items'>
-        <tr>
-          <td class='item1'>
-            <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
 
+  <main>
+
+    <section>
+
+      <% for(product of products) { %>
+        <div class='card'>
+
+          <div class="product-img">
+            <img src='<%= product.thumbnail_photo_url%>' alt='shoe image'>
+          </div>
+
+          <div class='product-specs'>
             <div class='name-and-button'>
               <h2><b>Name: <a href="/products/<%= product.product_id %>">
                     <%= product.name%>
@@ -49,24 +55,25 @@
               <h2><b>Seller: <a href="/seller/<%= product.seller_id%>">
                     <%= product.seller_name%>
                   </a></b></h2>
-                <a href="/message/<%= product.product_id%>">
+              <a href="/message/<%= product.product_id%>">
                 <button type="submit" action="" method="POST">
                   <i class="fas fa-comment fa-2x"></i>
                 </button> </a>
             </div>
             <h2><b>Price: $<%= product.price%></b></h2>
             <h2><b>Brand: <%= product.brand%>
-                </a></b></h2>
+                  </a></b></h2>
             <h2><b>Description: <%= product.info%></b></h2>
             <% if (product['stock']===false) { %>
               <h3>SOLD</h3>
               <% } %>
 
-          </td>
-        </tr>
+                <% } %>
+          </div>
+        </div>
         <% } %>
-          <% } %>
-      </table>
+    </section>
+
   </main>
 
 </html>

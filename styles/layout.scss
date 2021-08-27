@@ -44,18 +44,21 @@ section {
   margin: 10px 0px;
 }
 
-#price-button {
-  background-color: #4056A1;
-  border: none;
-  color: white;
-  height: 55px;
-  padding: 15px 32px;
-  font-weight: bold;
-  text-align: center;
-  display: inline-block;
-  width: 30%;
-}
 
+#price-button {
+  background-color: rgb(55, 97, 160);
+  border: none;
+  padding: 0px 32px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  float: right;
+  vertical-align: center;
+}
 
 .name-and-button {
   display: flex;
