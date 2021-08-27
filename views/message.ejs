@@ -1,7 +1,7 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <meta charset="utf-8">
--->
+
 <head>
   <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
   <link rel="stylesheet" href="/styles/universal_layout.css" type="text/css" />
@@ -9,11 +9,13 @@
 </head>
 
 <header>
-<%- include('partials/_header') %>
+  <%- include('partials/_header') %>
 </header>
+
 <body>
-  <h2>You are contacting <%= data['seller_name']%> for Product : <%= data['product_name'] %></h2>
-<main>
+  <h2>You are contacting <%= data['seller_name']%> for Product : <%= data['product_name'] %>
+  </h2>
+  <main>
 
     <form class="message-form" action="/message/<%= product_id%>" method="POST">
       <div class="message">
@@ -27,5 +29,3 @@
 
 
 </html>
-
-

@@ -4,9 +4,47 @@
 
 <head>
   <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/universal_layout.css" type="text/css" />
+
 </head>
-<%- include('partials/_header') %>
-  <!-- /:register
+
+
+<header>
+  <%- include('partials/_header') %>
+</header>
+
+<body>
+  <h1>Please enter your login information</h1>
+
+  <main style="margin: 1em;">
+    <form class="form-inline" action="/register" method="POST">
+      <div class="form-group mb-2">
+
+        <h3>Name</h3>
+        <input type="name" class="form-control" name="name" placeholder="Please enter your name"
+          style="width: 300px; margin: 1em" required><br><br>
+
+        <h3>Email</h3>
+        <input type="email" class="form-control" name="email" placeholder="Please enter your email"
+          style="width: 300px; margin: 1em" required><br><br>
+
+        <h3>Phone Number</h3>
+        <input type="text" class="form-control" name="phone" placeholder="Please enter your phone number"
+          style="width: 300px; margin: 1em" required><br><br>
+
+        <h3>Password</h3>
+        <input type="password" class="form-control" name="password" placeholder="Please enter your password"
+          style="width: 300px; margin: 1em" required><br><br>
+        <button type="submit" class="button">Submit</button>
+
+      </div>
+    </form>
+  </main>
+</body>
+
+</html>
+
+<!-- /:register
 
   Does not show "sign in/out" on header partial
 
@@ -15,21 +53,3 @@
   else redirects to /login
 
 -->
-  <main style="margin: 1em;">
-    <h3>Please enter your login information</h3>
-    <form class="form-inline" action="/register" method="POST">
-      <div class="form-group mb-2">
-        <input type="name" class="form-control" name="name" placeholder="Please enter your name"
-          style="width: 300px; margin: 1em" required><br><br>
-        <input type="email" class="form-control" name="email" placeholder="Please enter your email"
-        style="width: 300px; margin: 1em" required><br><br>
-        <input type="text" class="form-control" name="phone" placeholder="Please enter your phone number"
-        style="width: 300px; margin: 1em" required><br><br>
-        <input type="password" class="form-control" name="password" placeholder="Please enter your password"
-          style="width: 300px; margin: 1em" required><br><br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </form>
-  </main>
-
-</html>
