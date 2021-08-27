@@ -58,7 +58,7 @@ module.exports = (db) => {
 
 
 
-  router.post("/:id/price", (req, res) => {
+  router.post("../price", (req, res) => {
     const sellerID = req.params.id;
     const priceLim = req.body.price;
     db.query(`
