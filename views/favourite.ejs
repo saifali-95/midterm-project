@@ -49,9 +49,10 @@
               <h2><b>Seller: <a href="/seller/<%= product.seller_id%>">
                     <%= product.seller_name%>
                   </a></b></h2>
-              <button type="submit" action="" method="POST">
-                <i class="fas fa-comment fa-3x"></i>
-              </button>
+                <a href="/message/<%= product.product_id%>">
+                <button type="submit" action="" method="POST">
+                  <i class="fas fa-comment fa-2x"></i>
+                </button> </a>
             </div>
             <h2><b>Price: $<%= product.price%></b></h2>
             <h2><b>Brand: <%= product.brand%>
